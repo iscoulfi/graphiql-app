@@ -1,11 +1,5 @@
-import Editors from './components/editors/EditorTemplate';
-
 function App() {
-  return (
-    <div className="app">
-      <Editors />
-    </div>
-  );
+  return <div className="app"></div>;
 }
 
 export default App;
