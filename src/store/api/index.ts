@@ -6,7 +6,7 @@ export const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
-    getQraphQL: builder.query<string, GraphQLRequest>({
+    getGraphQL: builder.query<string, GraphQLRequest>({
       query: ({ query, headers, variables }) => ({
         url: '',
         method: 'POST',
@@ -23,4 +23,4 @@ export const api = createApi({
   }),
 });
 
-export const { useGetQraphQLQuery, useLazyGetQraphQLQuery } = api;
+export const { useGetGraphQLQuery, useLazyGetGraphQLQuery } = api;
