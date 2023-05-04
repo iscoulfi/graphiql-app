@@ -1,35 +1,38 @@
 import React, { useState } from 'react';
+import HeadersEditor from './HeadersEditor';
+import OperationEditor from './OperationEditor';
+import VariablesEditor from './VariablesEditor';
+import styles from './editors.module.css';
 
-const EditorTemplate = () => {
+const Editors = () => {
   const [operation, setOperation] = useState('');
   const [variables, setVariables] = useState('');
   const [headers, setHeaders] = useState('');
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     console.log('Operation:', operation);
     console.log('Variables:', variables);
     console.log('Headers:', headers);
   };
 
   return (
-    <div style={{ display: 'flex', gap: '20%', marginTop: '50px' }}>
-      <div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '15px' }}>
-          <textarea value={operation} onChange={(e) => setOperation(e.target.value)}></textarea>
-          <button onClick={handleSubmit}>Submit</button>
-        </div>
-        <div style={{ marginTop: '20%', display: 'flex', gap: '15px' }}>
-          <div>
-            <textarea value={variables} onChange={(e) => setVariables(e.target.value)}></textarea>
+    <form onSubmit={handleSubmit}>
+      <div className={styles.container}>
+        <button type="submit">Submit</button>
+        <div>
+          <div className={styles.operationEditor}>
+            <OperationEditor value={operation} onOperationChange={(e) => setOperation(e)} />
           </div>
-          <div>
-            <textarea value={headers} onChange={(e) => setHeaders(e.target.value)}></textarea>
+          <div className={styles.variablesEditor}>
+            <VariablesEditor value={variables} onVariablesChange={(e) => setVariables(e)} />
+            <HeadersEditor value={headers} onHeadersChange={(e) => setHeaders(e)} />
           </div>
         </div>
+        <div className={styles.response}>Response</div>
       </div>
-      <div style={{ border: '2px black solid', width: '40%' }}>Response</div>
-    </div>
+    </form>
   );
 };
 
-export default EditorTemplate;
+export default Editors;
