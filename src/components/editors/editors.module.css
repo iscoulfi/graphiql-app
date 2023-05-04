@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  gap: 20%;
+  margin-top: 50px;
+}
+
+.operation-editor {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.variables-editor {
+  display: flex;
+  gap: 15px;
+  margin-top: 20%;
+}
+.response {
+  border: 2px black solid;
+  width: 40%;
+}
