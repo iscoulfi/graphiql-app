@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f8f9fa;
+
+  .logo {
+    width: 100px;
+    padding: 16px;
+  }
+  .accounts {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    a {
+      color: #000;
+      &:hover {
+        color: #e535ab;
+      }
+    }
+  }
+}
