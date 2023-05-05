@@ -1,12 +1,11 @@
-import React, { ChangeEvent } from 'react';
-import styles from './VariablesEditor.module.css';
+import styles from './VariablesEditor.module.scss';
 
 interface VariablesEditorProps {
   value: string;
   onVariablesChange: (value: string) => void;
 }
 
-const VariablesEditor = ({ value, onVariablesChange }: VariablesEditorProps) => {
+export const VariablesEditor = ({ value, onVariablesChange }: VariablesEditorProps) => {
   return (
     <div className={styles.variablesEditor}>
       <textarea
@@ -17,5 +16,3 @@ const VariablesEditor = ({ value, onVariablesChange }: VariablesEditorProps) => 
     </div>
   );
 };
-
-export default VariablesEditor;

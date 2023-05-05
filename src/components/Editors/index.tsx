@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import HeadersEditor from './HeadersEditor';
-import OperationEditor from './OperationEditor';
-import VariablesEditor from './VariablesEditor';
-import styles from './EditorTemplate.module.css';
+import { HeadersEditor } from './editors/HeadersEditor';
+import { OperationEditor } from './editors/OperationEditor';
+import { VariablesEditor } from './editors/VariablesEditor';
+import styles from '../Editors/Editors.module.scss';
 
-const Editors = () => {
+export const Editors = () => {
   const [operation, setOperation] = useState('');
   const [variables, setVariables] = useState('');
   const [headers, setHeaders] = useState('');
@@ -28,5 +28,3 @@ const Editors = () => {
     </form>
   );
 };
-
-export default Editors;

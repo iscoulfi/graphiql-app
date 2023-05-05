@@ -1,12 +1,11 @@
-import React from 'react';
-import styles from './OperationEditor.module.css';
+import styles from './OperationEditor.module.scss';
 
 interface OperationEditorProps {
   value: string;
   onOperationChange: (value: string) => void;
 }
 
-const OperationEditor = ({ value, onOperationChange }: OperationEditorProps) => {
+export const OperationEditor = ({ value, onOperationChange }: OperationEditorProps) => {
   return (
     <div className={styles.operationEditor}>
       <textarea
@@ -17,5 +16,3 @@ const OperationEditor = ({ value, onOperationChange }: OperationEditorProps) => 
     </div>
   );
 };
-
-export default OperationEditor;
