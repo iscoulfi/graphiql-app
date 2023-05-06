@@ -1,4 +1,6 @@
-import styles from './OperationEditor.module.scss';
+import CodeMirrorWrapper from './CodemirrorWrapper';
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/material.css';
 
 interface OperationEditorProps {
   value: string;
@@ -7,12 +9,8 @@ interface OperationEditorProps {
 
 export const OperationEditor = ({ value, onOperationChange }: OperationEditorProps) => {
   return (
-    <div className={styles.operationEditor}>
-      <textarea
-        className={styles.textarea}
-        value={value}
-        onChange={(e) => onOperationChange(e.target.value)}
-      ></textarea>
+    <div>
+      <CodeMirrorWrapper mode="graphql" value={value} onChange={(e) => onOperationChange(e)} />
     </div>
   );
 };
