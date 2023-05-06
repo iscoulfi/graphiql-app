@@ -7,6 +7,7 @@ import 'codemirror-graphql/info';
 import 'codemirror-graphql/jump';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
+import { Editors } from 'components/Editors';
 
 interface CodeMirrorWrapperProps {
   value: string;
@@ -25,12 +26,10 @@ const CodeMirrorWrapper: React.FC<CodeMirrorWrapperProps> = ({ value, onChange, 
         theme: 'material',
         lineNumbers: true,
       });
-      editor.on(
-        'beforeChange',
-        (instance: CodeMirror.Editor, changeObj: CodeMirror.EditorChangeCancellable) => {
-          onChange(changeObj.text.join('\n'));
-        }
-      );
+      editor.on('change', (instance: CodeMirror.Editor, changeObj: CodeMirror.EditorChange) => {
+        onChange(editorRef.current?.getValue() || '');
+        console.log(editorRef.current?.getValue());
+      });
 
       editorRef.current = editor;
     }
@@ -40,7 +39,7 @@ const CodeMirrorWrapper: React.FC<CodeMirrorWrapperProps> = ({ value, onChange, 
         editorRef.current = null;
       }
     };
-  }, [onChange]);
+  }, []);
 
   return (
     <div>
