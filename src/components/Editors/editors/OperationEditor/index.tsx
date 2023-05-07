@@ -1,3 +1,5 @@
+import { Editor, OnChange } from '@monaco-editor/react';
+import { editorOptions } from 'config';
 import styles from './OperationEditor.module.scss';
 
 interface OperationEditorProps {
@@ -6,13 +8,11 @@ interface OperationEditorProps {
 }
 
 export const OperationEditor = ({ value, onOperationChange }: OperationEditorProps) => {
+  const onChange: OnChange = (value) => onOperationChange(value ?? '');
+
   return (
     <div className={styles.operationEditor}>
-      <textarea
-        className={styles.textarea}
-        value={value}
-        onChange={(e) => onOperationChange(e.target.value)}
-      ></textarea>
+      <Editor language="graphql" value={value} options={editorOptions} onChange={onChange} />
     </div>
   );
 };

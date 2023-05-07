@@ -1,3 +1,5 @@
+import { Editor } from '@monaco-editor/react';
+import { editorOptions } from 'config';
 import styles from './Response.module.scss';
 
 interface ResponseEditorProps {
@@ -7,7 +9,7 @@ interface ResponseEditorProps {
 export const Response = ({ value }: ResponseEditorProps) => {
   return (
     <div className={styles.responseEditor}>
-      <textarea value={value} readOnly={true}></textarea>
+      <Editor language="graphql" value={value} options={{ ...editorOptions, readOnly: true }} />
     </div>
   );
 };

@@ -18,9 +18,9 @@ export const Editors = () => {
     <form className={styles.container} onSubmit={handleSubmit}>
       <button type="submit">Submit</button>
       <div>
-        <OperationEditor value={operation} onOperationChange={(e) => setOperation(e)} />
-        <VariablesEditor value={variables} onVariablesChange={(e) => setVariables(e)} />
-        <HeadersEditor value={headers} onHeadersChange={(e) => setHeaders(e)} />
+        <OperationEditor value={operation} onOperationChange={setOperation} />
+        <VariablesEditor value={variables} onVariablesChange={setVariables} />
+        <HeadersEditor value={headers} onHeadersChange={setHeaders} />
       </div>
       <div>
         <Response value="" />
