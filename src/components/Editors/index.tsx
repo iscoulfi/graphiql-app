@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { HeadersEditor } from './editors/HeadersEditor';
-import { OperationEditor } from './editors/OperationEditor';
-import { VariablesEditor } from './editors/VariablesEditor';
-import { Response } from './editors/Response';
-import styles from '../Editors/Editors.module.scss';
+import { HeadersEditor, OperationEditor, VariablesEditor, Response } from './editors';
+import styles from './Editors.module.scss';
 
 export const Editors = () => {
   const [operation, setOperation] = useState('');
