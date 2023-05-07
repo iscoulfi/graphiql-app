@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HeadersEditor } from './editors/HeadersEditor';
 import { OperationEditor } from './editors/OperationEditor';
 import { VariablesEditor } from './editors/VariablesEditor';
+import { Response } from './editors/Response';
 import styles from '../Editors/Editors.module.scss';
 
 export const Editors = () => {
@@ -24,7 +25,9 @@ export const Editors = () => {
         <VariablesEditor value={variables} onVariablesChange={(e) => setVariables(e)} />
         <HeadersEditor value={headers} onHeadersChange={(e) => setHeaders(e)} />
       </div>
-      <div>Response</div>
+      <div>
+        <Response value="" />
+      </div>
     </form>
   );
 };
