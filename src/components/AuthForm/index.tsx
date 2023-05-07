@@ -13,7 +13,11 @@ interface AuthFormProps {
 
 export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => {
   const { title, text, linkText } = definition;
-  const { register, handleSubmit } = useForm<Inputs>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
@@ -27,13 +31,42 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
           <Form.Control
             type="email"
             placeholder="Enter e-mail"
-            {...register('email')}
+            {...register('email', {
+              required: 'Please enter e-mail',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: 'Invalid email address',
+              },
+            })}
             autoComplete="off"
+            isInvalid={!!errors.email}
           />
+          {errors.email ? (
+            <span className={styles.error}>{errors.email.message}</span>
+          ) : (
+            <span>E-mail</span>
+          )}
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Control type="password" placeholder="Password" {...register('password')} />
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            {...register('password', {
+              required: 'Please enter password',
+              pattern: {
+                value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+                message:
+                  'Length must be 8 or more, at least one letter, one digit, one special character',
+              },
+            })}
+            isInvalid={!!errors.password}
+          />
+          {errors.password ? (
+            <span className={styles.error}>{errors.password.message}</span>
+          ) : (
+            <span>Password</span>
+          )}
         </Form.Group>
 
         <Button variant="primary" type="submit" className="mb-4">
