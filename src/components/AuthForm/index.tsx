@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { auth, logInWithEmailAndPassword, registerWithEmailAndPassword } from 'config';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { FormDefinition, Inputs } from 'types';
 import styles from './AuthForm.module.scss';
@@ -13,6 +16,9 @@ interface AuthFormProps {
 
 export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => {
   const { title, text, linkText } = definition;
+  const navigate = useNavigate();
+  const [user, loading] = useAuthState(auth);
+
   const {
     register,
     handleSubmit,
@@ -20,9 +26,17 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+    isLogin
+      ? logInWithEmailAndPassword(data.email, data.password)
+      : registerWithEmailAndPassword('fix', data.email, data.password);
   };
 
+  useEffect(() => {
+    if (loading) {
+      return;
+    }
+    if (user) navigate('/main');
+  }, [user, loading, navigate]);
   return (
     <div className={styles.auth}>
       <h2 className="fw-bold mb-5">{title}</h2>
