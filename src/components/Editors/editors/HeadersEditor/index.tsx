@@ -1,5 +1,6 @@
 import { Editor, OnChange } from '@monaco-editor/react';
 import { editorOptions } from 'config';
+import styles from './HeadersEditor.module.scss';
 
 interface HeadersEditorProps {
   value: string;
@@ -8,9 +9,8 @@ interface HeadersEditorProps {
 
 export const HeadersEditor = ({ value, onHeadersChange }: HeadersEditorProps) => {
   const onChange: OnChange = (value) => onHeadersChange(value ?? '');
-
   return (
-    <div>
+    <div className={styles.headersEditor}>
       <Editor language="json" value={value} options={editorOptions} onChange={onChange} />
     </div>
   );

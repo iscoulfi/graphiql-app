@@ -16,13 +16,17 @@ export const Editors = () => {
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
-      <button type="submit">Submit</button>
-      <div>
+      <button type="submit" className={styles.submitButton}>
+        Submit
+      </button>
+      <div className={styles.editorWrapper}>
         <OperationEditor value={operation} onOperationChange={setOperation} />
-        <VariablesEditor value={variables} onVariablesChange={setVariables} />
-        <HeadersEditor value={headers} onHeadersChange={setHeaders} />
+        <div className={styles.operationWrapper}>
+          <VariablesEditor value={variables} onVariablesChange={setVariables} />
+          <HeadersEditor value={headers} onHeadersChange={setHeaders} />
+        </div>
       </div>
-      <div>
+      <div className={styles.responseWrapper}>
         <Response value="" />
       </div>
     </form>
