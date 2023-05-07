@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
-import { auth, logout } from 'config';
+import { auth } from 'config';
 
 export const Main = () => {
   const [user, loading] = useAuthState(auth);
@@ -11,9 +11,6 @@ export const Main = () => {
     if (loading) return;
     if (!user) return navigate('/');
   }, [user, loading, navigate]);
-  return (
-    <div>
-      <button onClick={logout}>Logout</button>
-    </div>
-  );
+
+  return <div>Main page here</div>;
 };
