@@ -23,6 +23,7 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
 
@@ -30,6 +31,11 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
     isLogin
       ? logInWithEmailAndPassword(data.email, data.password)
       : registerWithEmailAndPassword(data.username, data.email, data.password);
+  };
+
+  const switchForm = () => {
+    setIsLogin(!isLogin);
+    reset();
   };
 
   useEffect(() => {
@@ -109,7 +115,7 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
 
         <p>
           {text}
-          <span className={styles.link} onClick={() => setIsLogin(!isLogin)}>
+          <span className={styles.link} onClick={switchForm}>
             {linkText}
           </span>
         </p>
