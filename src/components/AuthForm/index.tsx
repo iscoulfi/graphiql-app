@@ -7,6 +7,7 @@ import { FormDefinition, Inputs } from 'types';
 import styles from './AuthForm.module.scss';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import PuffLoader from 'react-spinners/PuffLoader';
 
 interface AuthFormProps {
   definition: FormDefinition;
@@ -32,11 +33,11 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
   };
 
   useEffect(() => {
-    if (loading) {
-      return;
-    }
     if (user) navigate('/main');
   }, [user, loading, navigate]);
+
+  if (loading) return <PuffLoader className={styles.loader} color="#e535ab" />;
+
   return (
     <div className={styles.auth}>
       <h2 className="fw-bold mb-5">{title}</h2>
