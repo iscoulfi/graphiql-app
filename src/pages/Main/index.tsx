@@ -1,3 +1,5 @@
+import { Editors } from 'components';
+
 export const Main = () => {
-  return <div>Main page here</div>;
+  return <Editors />;
 };
