@@ -28,7 +28,7 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     isLogin
       ? logInWithEmailAndPassword(data.email, data.password)
-      : registerWithEmailAndPassword('fix', data.email, data.password);
+      : registerWithEmailAndPassword(data.username, data.email, data.password);
   };
 
   useEffect(() => {
@@ -41,6 +41,25 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
     <div className={styles.auth}>
       <h2 className="fw-bold mb-5">{title}</h2>
       <Form noValidate onSubmit={handleSubmit(onSubmit)}>
+        {!isLogin && (
+          <Form.Group className="mb-3">
+            <Form.Control
+              type="text"
+              placeholder="Enter username"
+              {...register('username', {
+                required: 'Please enter username',
+              })}
+              autoComplete="off"
+              isInvalid={!!errors.username}
+            />
+            {errors.username ? (
+              <span className={styles.error}>{errors.username.message}</span>
+            ) : (
+              <span>Username</span>
+            )}
+          </Form.Group>
+        )}
+
         <Form.Group className="mb-3">
           <Form.Control
             type="email"
