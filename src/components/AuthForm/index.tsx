@@ -39,6 +39,7 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
   };
 
   useEffect(() => {
+    if (loading) return;
     if (user) navigate('/main');
   }, [user, loading, navigate]);
 

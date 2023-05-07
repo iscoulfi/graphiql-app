@@ -10,8 +10,9 @@ export const Main = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (loading) return;
     if (!user) navigate('/');
-  }, [user, navigate]);
+  }, [user, loading, navigate]);
 
   if (loading) return <PuffLoader className={styles.loader} color="#e535ab" />;
 
