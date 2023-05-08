@@ -1,5 +1,26 @@
 .container {
   display: flex;
-  gap: 20%;
-  margin-top: 50px;
+  height: calc(100vh - 56px);
+  width: 100%;
+}
+
+.editorWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.operationWrapper {
+  display: flex;
+  height: 40%;
+}
+
+.responseWrapper {
+  display: flex;
+  width: 50%;
+}
+
+.submitButton {
+  position: absolute;
+  z-index: 2;
 }
