@@ -1,3 +1,6 @@
+import { logout } from 'config';
+import { TbLogout } from 'react-icons/tb';
+import styles from './Header.module.scss';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -14,6 +17,7 @@ export const Header = () => {
             alt="GraphQL logo"
           />
         </Navbar.Brand>
+        <TbLogout className={styles.logout} onClick={logout} />
       </Container>
     </Navbar>
   );

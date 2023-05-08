@@ -1,0 +1,28 @@
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+.auth {
+  width: 400px;
+}
+
+@include media-breakpoint-down(md) {
+  .auth {
+    max-width: 65%;
+  }
+}
+
+.link {
+  color: #0275d8;
+  cursor: pointer;
+  &:hover {
+    color: #0000ff;
+  }
+}
+
+.error {
+  color: #ff0000;
+}
+
+.loader {
+  margin: auto;
+  margin-top: 30vh;
+}
