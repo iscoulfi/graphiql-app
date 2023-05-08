@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { HeadersEditor } from './editors/HeadersEditor';
-import { OperationEditor } from './editors/OperationEditor';
-import { VariablesEditor } from './editors/VariablesEditor';
-import styles from '../Editors/Editors.module.scss';
+import { HeadersEditor, OperationEditor, VariablesEditor, Response } from './editors';
+import styles from './Editors.module.scss';
 
 export const Editors = () => {
   const [operation, setOperation] = useState('');
@@ -18,13 +16,19 @@ export const Editors = () => {
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
-      <button type="submit">Submit</button>
-      <div>
-        <OperationEditor value={operation} onOperationChange={(e) => setOperation(e)} />
-        <VariablesEditor value={variables} onVariablesChange={(e) => setVariables(e)} />
-        <HeadersEditor value={headers} onHeadersChange={(e) => setHeaders(e)} />
+      <button type="submit" className={styles.submitButton}>
+        Submit
+      </button>
+      <div className={styles.editorWrapper}>
+        <OperationEditor value={operation} onOperationChange={setOperation} />
+        <div className={styles.operationWrapper}>
+          <VariablesEditor value={variables} onVariablesChange={setVariables} />
+          <HeadersEditor value={headers} onHeadersChange={setHeaders} />
+        </div>
       </div>
-      <div>Response</div>
+      <div className={styles.responseWrapper}>
+        <Response value="" />
+      </div>
     </form>
   );
 };
