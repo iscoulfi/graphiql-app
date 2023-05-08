@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import { FirebaseError, initializeApp } from 'firebase/app';
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -6,6 +6,7 @@ import {
   signOut,
 } from 'firebase/auth';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { toast } from 'react-toastify';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -23,8 +24,17 @@ const db = getFirestore(app);
 const logInWithEmailAndPassword = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
-  } catch (err) {
-    console.log((err as Error).message);
+  } catch (e) {
+    switch ((e as FirebaseError).code) {
+      case 'auth/wrong-password':
+        toast.error('Wrong password');
+        break;
+      case 'auth/user-not-found':
+        toast.error('This user does not exist');
+        break;
+      default:
+        toast.error((e as FirebaseError).code);
+    }
   }
 };
 
@@ -38,8 +48,14 @@ const registerWithEmailAndPassword = async (name: string, email: string, passwor
       authProvider: 'local',
       email,
     });
-  } catch (err) {
-    console.log((err as Error).message);
+  } catch (e) {
+    switch ((e as FirebaseError).code) {
+      case 'auth/email-already-in-use':
+        toast.error('This email already exists');
+        break;
+      default:
+        toast.error((e as FirebaseError).code);
+    }
   }
 };
 

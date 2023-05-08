@@ -4,6 +4,8 @@ import { auth, logInWithEmailAndPassword, registerWithEmailAndPassword } from 'c
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { FormDefinition, Inputs } from 'types';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import styles from './AuthForm.module.scss';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -121,6 +123,7 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
           </span>
         </p>
       </Form>
+      <ToastContainer autoClose={3000} />
     </div>
   );
 };
