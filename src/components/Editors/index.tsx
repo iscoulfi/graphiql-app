@@ -11,7 +11,7 @@ export const Editors = () => {
   const [parseError, setParseError] = useState('');
 
   const [getGraphQLQuery, graphQLResponse] = useLazyGetGraphQLQuery();
-  const { data, error } = graphQLResponse;
+  const { data, error, isFetching } = graphQLResponse;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,7 +44,10 @@ export const Editors = () => {
         </div>
       </div>
       <div className={styles.responseWrapper}>
-        <Response value={parseError || JSON.stringify(error) || JSON.stringify(data)} />
+        <Response
+          value={parseError || JSON.stringify(error) || JSON.stringify(data)}
+          loading={isFetching}
+        />
       </div>
     </form>
   );
