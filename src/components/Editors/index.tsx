@@ -3,6 +3,8 @@ import { HeadersEditor, OperationEditor, VariablesEditor, Response } from './edi
 import { useLazyGetGraphQLQuery } from 'store/api';
 import { parse } from 'utils';
 import styles from './Editors.module.scss';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
 export const Editors = () => {
   const [operation, setOperation] = useState('');
@@ -31,6 +33,8 @@ export const Editors = () => {
     }
   };
 
+  const [tab, setTab] = useState<string | null>('variables');
+
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
       <button type="submit" className={styles.submitButton}>
@@ -38,10 +42,14 @@ export const Editors = () => {
       </button>
       <div className={styles.editorWrapper}>
         <OperationEditor value={operation} onOperationChange={setOperation} />
-        <div className={styles.operationWrapper}>
-          <VariablesEditor value={variables} onVariablesChange={setVariables} />
-          <HeadersEditor value={headers} onHeadersChange={setHeaders} />
-        </div>
+        <Tabs activeKey={tab ?? 'variables'} onSelect={setTab} variant="pills">
+          <Tab eventKey="variables" title="Variables">
+            <VariablesEditor value={variables} onVariablesChange={setVariables} />
+          </Tab>
+          <Tab eventKey="headers" title="Headers">
+            <HeadersEditor value={headers} onHeadersChange={setHeaders} />
+          </Tab>
+        </Tabs>
       </div>
       <div className={styles.responseWrapper}>
         <Response
