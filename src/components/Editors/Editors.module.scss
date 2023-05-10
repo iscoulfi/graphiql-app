@@ -1,8 +1,10 @@
 .container {
-  display: flex;
-  height: calc(100vh - 56px);
   width: 100%;
-  &>div {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  justify-content: space-between;
+  &,
+  & > div {
     background-color: white;
   }
 }
@@ -10,22 +12,16 @@
 .editorWrapper {
   display: flex;
   flex-direction: column;
-  width: 50%;
-}
-
-.operationWrapper {
-  display: flex;
-  height: 40%;
+  flex: 1 1 0%;
+  & > div {
+    padding: 16px;
+  }
 }
 
 .responseWrapper {
   display: flex;
-  width: 50%;
+  flex: 1 1 0%;
   position: relative;
   align-items: center;
-}
-
-.submitButton {
-  position: absolute;
-  z-index: 2;
+  padding: 16px;
 }

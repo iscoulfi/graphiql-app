@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HeadersEditor, OperationEditor, VariablesEditor, Response } from './editors';
+import { SubmitButton } from './components';
 import { useLazyGetGraphQLQuery } from 'store/api';
 import { parse } from 'utils';
 import styles from './Editors.module.scss';
@@ -37,9 +38,6 @@ export const Editors = () => {
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
-      <button type="submit" className={styles.submitButton}>
-        Submit
-      </button>
       <div className={styles.editorWrapper}>
         <OperationEditor value={operation} onOperationChange={setOperation} />
         <Tabs activeKey={tab ?? 'variables'} onSelect={setTab} variant="pills">
@@ -51,6 +49,7 @@ export const Editors = () => {
           </Tab>
         </Tabs>
       </div>
+      <SubmitButton loading={isFetching} />
       <div className={styles.responseWrapper}>
         <Response
           value={parseError || JSON.stringify(error) || JSON.stringify(data)}
