@@ -1,3 +1,18 @@
 {
-  "welcome": "welcome page !"
+  "welcome": "welcome page !",
+  "signup": "Sign up",
+  "signin": "Sign in",
+  "Username": "Username",
+  "Password": "Password",
+  "E-mail": "E-mail",
+  "Don't have an account?": "Don't have an account? ",
+  "Register here": "Register here",
+  "Please enter username": "Please enter username",
+  "Please enter e-mail": "Please enter e-mail",
+  "Please enter password": "Please enter password",
+  "Invalid email address": "Invalid email address",
+  "Length error": "Length must be 8 or more, at least one letter, one digit, one special character",
+  "Submit": "Submit",
+  "Enter username": "Enter username",
+  "Enter e-mail": "Enter e-mail"
 }

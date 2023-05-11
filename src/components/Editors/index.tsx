@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { HeadersEditor, OperationEditor, VariablesEditor, Response } from './editors';
 import styles from './Editors.module.scss';
 
@@ -6,6 +7,7 @@ export const Editors = () => {
   const [operation, setOperation] = useState('');
   const [variables, setVariables] = useState('');
   const [headers, setHeaders] = useState('');
+  const { t } = useTranslation();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,7 +19,7 @@ export const Editors = () => {
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
       <button type="submit" className={styles.submitButton}>
-        Submit
+        {t('Submit')}
       </button>
       <div className={styles.editorWrapper}>
         <OperationEditor value={operation} onOperationChange={setOperation} />
