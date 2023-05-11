@@ -7,3 +7,11 @@
     color: #ff0000;
   }
 }
+.checkLanguage,
+.checkLanguage button {
+  display: flex;
+  border-color: #e535ab;
+  border-radius: 5px;
+  gap: 3px;
+  padding: 1px;
+}
