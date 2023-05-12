@@ -15,7 +15,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <I18nextProvider i18n={i18n}>
           <App />
         </I18nextProvider>
-        ,
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

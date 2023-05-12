@@ -11,6 +11,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import PuffLoader from 'react-spinners/PuffLoader';
 import { useTranslation } from 'react-i18next';
+import { getByTitle } from '@testing-library/react';
 
 interface AuthFormProps {
   definition: FormDefinition;
@@ -50,7 +51,7 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
 
   return (
     <div className={styles.auth}>
-      <h2 className="fw-bold mb-5">{t('signup')}</h2>
+      <h2 className="fw-bold mb-5">{t(title)}</h2>
       <Form noValidate onSubmit={handleSubmit(onSubmit)}>
         {!isLogin && (
           <Form.Group className="mb-3">
@@ -122,13 +123,13 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
         </Form.Group>
 
         <Button variant="primary" type="submit" className="mb-4">
-          {t('signin')}
+          {t(title)}
         </Button>
 
         <p>
-          {t("Don't have an account?")}
+          {t(text)}
           <span className={styles.link} onClick={switchForm}>
-            {t('Register here')}
+            {t(linkText)}
           </span>
         </p>
       </Form>
