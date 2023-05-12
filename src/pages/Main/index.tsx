@@ -17,5 +17,7 @@ export const Main = () => {
 
   if (loading) return <PuffLoader className={styles.loader} color="#e535ab" />;
 
+  if (!user) return null;
+
   return <Editors />;
 };

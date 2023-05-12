@@ -49,6 +49,8 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
 
   if (loading) return <PuffLoader className={styles.loader} color="#e535ab" />;
 
+  if (user) return null;
+
   return (
     <div className={styles.auth}>
       <h2 className="fw-bold mb-5">{t(title)}</h2>
