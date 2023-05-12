@@ -7,10 +7,11 @@ import styles from './Welcome.module.scss';
 
 export const Welcome = () => {
   const [user, loading] = useAuthState(auth);
-
   const navigate = useNavigate();
 
-  const onClick = () => navigate(user ? '/main' : '/auth');
+  const onMainClick = () => navigate('/main');
+  const onSignInClick = () => navigate('/auth');
+  const onSignUpClick = () => navigate('/auth?signup=true');
 
   if (loading) return <PuffLoader className={styles.loader} color="#e535ab" />;
 
@@ -39,15 +40,15 @@ export const Welcome = () => {
         </Card.Subtitle>
         <Card.Body className="text-center">
           {user ? (
-            <Button onClick={onClick} variant="secondary">
+            <Button onClick={onMainClick} variant="secondary">
               Go to Main Page
             </Button>
           ) : (
             <Stack gap={2} className="col-md-8 mx-auto">
-              <Button onClick={onClick} variant="outline-secondary">
+              <Button onClick={onSignInClick} variant="outline-secondary">
                 Sign In
               </Button>
-              <Button onClick={onClick} variant="secondary">
+              <Button onClick={onSignUpClick} variant="secondary">
                 Sign Up
               </Button>
             </Stack>

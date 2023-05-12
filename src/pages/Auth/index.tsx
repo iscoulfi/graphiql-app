@@ -1,3 +1,4 @@
+import { useSearchParams } from 'react-router-dom';
 import { AuthForm } from 'components';
 import { useState } from 'react';
 
@@ -14,7 +15,12 @@ const RegisterDefinition = {
 };
 
 export const Auth = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [searchParams] = useSearchParams();
+
+  const isSignUp = searchParams.get('signup');
+
+  const [isLogin, setIsLogin] = useState(!isSignUp);
+
   return (
     <section className="text-center">
       <div className="py-5 px-md-5">
