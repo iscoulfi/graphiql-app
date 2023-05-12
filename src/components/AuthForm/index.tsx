@@ -10,6 +10,8 @@ import styles from './AuthForm.module.scss';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import PuffLoader from 'react-spinners/PuffLoader';
+import { useTranslation } from 'react-i18next';
+import { getByTitle } from '@testing-library/react';
 
 interface AuthFormProps {
   definition: FormDefinition;
@@ -21,7 +23,7 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
   const { title, text, linkText } = definition;
   const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
-
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -49,15 +51,18 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
 
   return (
     <div className={styles.auth}>
-      <h2 className="fw-bold mb-5">{title}</h2>
+      <h2 className="fw-bold mb-5">{t(title)}</h2>
       <Form noValidate onSubmit={handleSubmit(onSubmit)}>
         {!isLogin && (
           <Form.Group className="mb-3">
             <Form.Control
               type="text"
-              placeholder="Enter username"
+              placeholder={t('Enter username') as string}
               {...register('username', {
-                required: 'Please enter username',
+                required: {
+                  value: true,
+                  message: t('Please enter username'),
+                },
               })}
               autoComplete="off"
               isInvalid={!!errors.username}
@@ -65,7 +70,7 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
             {errors.username ? (
               <span className={styles.error}>{errors.username.message}</span>
             ) : (
-              <span>Username</span>
+              <span>{t('Username')}</span>
             )}
           </Form.Group>
         )}
@@ -73,12 +78,15 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
         <Form.Group className="mb-3">
           <Form.Control
             type="email"
-            placeholder="Enter e-mail"
+            placeholder={t('Enter e-mail') as string}
             {...register('email', {
-              required: 'Please enter e-mail',
+              required: {
+                value: true,
+                message: t('Please enter e-mail'),
+              },
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'Invalid email address',
+                message: t('Invalid email address'),
               },
             })}
             autoComplete="off"
@@ -87,20 +95,22 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
           {errors.email ? (
             <span className={styles.error}>{errors.email.message}</span>
           ) : (
-            <span>E-mail</span>
+            <span>{t('E-mail')}</span>
           )}
         </Form.Group>
 
         <Form.Group className="mb-3">
           <Form.Control
             type="password"
-            placeholder="Password"
+            placeholder={t('Password') as string}
             {...register('password', {
-              required: 'Please enter password',
+              required: {
+                value: true,
+                message: t('Please enter password'),
+              },
               pattern: {
                 value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-                message:
-                  'Length must be 8 or more, at least one letter, one digit, one special character',
+                message: t('Length error'),
               },
             })}
             isInvalid={!!errors.password}
@@ -108,18 +118,18 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
           {errors.password ? (
             <span className={styles.error}>{errors.password.message}</span>
           ) : (
-            <span>Password</span>
+            <span>{t('Password')}</span>
           )}
         </Form.Group>
 
         <Button variant="primary" type="submit" className="mb-4">
-          {title}
+          {t(title)}
         </Button>
 
         <p>
-          {text}
+          {t(text)}
           <span className={styles.link} onClick={switchForm}>
-            {linkText}
+            {t(linkText)}
           </span>
         </p>
       </Form>
