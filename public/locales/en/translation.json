@@ -15,5 +15,11 @@
   "Length error": "Length must be 8 or more, at least one letter, one digit, one special character",
   "Submit": "Submit",
   "Enter username": "Enter username",
-  "Enter e-mail": "Enter e-mail"
+  "Enter e-mail": "Enter e-mail",
+  "Welcome title": "Welcome to GraphiQL App!",
+  "Welcome text": "GraphiQL is an open-source tool that provides a playground/IDE for making GraphQL requests. It allows developers to easily explore and test GraphQL APIs, and is widely used in the GraphQL community.",
+  "Created": "Created for the Rolling Scopes School React 2023 course.",
+  "You are signed in": "You are signed in",
+  "Please sign in to continue": "Please sign in to continue",
+  "Go to main page": "Go to main page"
 }
