@@ -17,7 +17,12 @@ export const Response = ({ value, loading }: ResponseEditorProps) => {
         </div>
       )}
       <div className={styles.responseEditor}>
-        <Editor language="graphql" value={value} options={{ ...editorOptions, readOnly: true }} />
+        <Editor
+          loading=""
+          language="graphql"
+          value={value}
+          options={{ ...editorOptions, readOnly: true }}
+        />
       </div>
     </>
   );

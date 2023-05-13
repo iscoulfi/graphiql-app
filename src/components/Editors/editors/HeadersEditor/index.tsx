@@ -11,7 +11,13 @@ export const HeadersEditor = ({ value, onHeadersChange }: HeadersEditorProps) =>
   const onChange: OnChange = (value) => onHeadersChange(value ?? '');
   return (
     <div className={styles.headersEditor}>
-      <Editor language="json" value={value} options={editorOptions} onChange={onChange} />
+      <Editor
+        loading=""
+        language="json"
+        value={value}
+        options={editorOptions}
+        onChange={onChange}
+      />
     </div>
   );
 };

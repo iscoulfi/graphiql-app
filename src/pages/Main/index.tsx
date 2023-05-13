@@ -3,8 +3,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth } from 'config';
 import styles from './Main.module.scss';
-import PuffLoader from 'react-spinners/PuffLoader';
 import { Editors } from 'components';
+import { EditorsSkeleton } from 'components/Editors/components/Skeletons';
 
 export const Main = () => {
   const [user, loading] = useAuthState(auth);
@@ -15,7 +15,7 @@ export const Main = () => {
     if (!user) navigate('/');
   }, [user, loading, navigate]);
 
-  if (loading) return <PuffLoader className={styles.loader} color="#e535ab" />;
+  if (loading) return <EditorsSkeleton />;
 
   if (!user) return null;
 

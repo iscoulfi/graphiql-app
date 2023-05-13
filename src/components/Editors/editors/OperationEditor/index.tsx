@@ -12,7 +12,13 @@ export const OperationEditor = ({ value, onOperationChange }: OperationEditorPro
 
   return (
     <div className={styles.operationEditor}>
-      <Editor language="graphql" value={value} options={editorOptions} onChange={onChange} />
+      <Editor
+        loading=""
+        language="graphql"
+        value={value}
+        options={editorOptions}
+        onChange={onChange}
+      />
     </div>
   );
 };

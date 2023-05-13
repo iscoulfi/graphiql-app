@@ -12,7 +12,13 @@ export const VariablesEditor = ({ value, onVariablesChange }: VariablesEditorPro
 
   return (
     <div className={styles.variablesEditor}>
-      <Editor language="json" value={value} options={editorOptions} onChange={onChange} />
+      <Editor
+        loading=""
+        language="json"
+        value={value}
+        options={editorOptions}
+        onChange={onChange}
+      />
     </div>
   );
 };
