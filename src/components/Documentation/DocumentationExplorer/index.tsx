@@ -3,6 +3,8 @@ import { GraphQLSchema, GraphQLType } from 'graphql';
 import { NavigationContext } from '../NavigationContext';
 import { Type } from '../Type';
 import { Breadcrumb } from 'react-bootstrap';
+import styles from './DocumentationExplorer.module.scss';
+
 export const DocumentationExplorer = ({ schema }: { schema: GraphQLSchema }) => {
   const [type, setType] = useState<GraphQLType | undefined>();
   const [navigationHistory, setNavigationHistory] = useState<string[]>(['Query']);
@@ -27,12 +29,12 @@ export const DocumentationExplorer = ({ schema }: { schema: GraphQLSchema }) => 
 
   return (
     <NavigationContext.Provider value={{ navigateToType, navigateBack }}>
-      {navigationHistory.length > 0 && (
-        <Breadcrumb.Item href="#" onClick={navigateBack}>
-          {navigationHistory[navigationHistory.length - 2]}
-        </Breadcrumb.Item>
-      )}
-      <div>
+      <div className={styles.documentation}>
+        {navigationHistory.length > 0 && (
+          <Breadcrumb.Item href="#" onClick={navigateBack}>
+            {navigationHistory[navigationHistory.length - 2]}
+          </Breadcrumb.Item>
+        )}
         <Type type={type || query} />
       </div>
     </NavigationContext.Provider>

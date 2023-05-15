@@ -19,7 +19,7 @@ export const Field = ({ field, isInput }: FieldProps) => {
             {field.args.map((arg, idx) => (
               <span key={arg.name}>
                 <span>{arg.name}</span>: <TypeLink type={arg.type} />
-                {idx === field.args.length - 1 ? '' : ', '}
+                {idx === field.args.length - 1 ? ' ' : ', '}
               </span>
             ))}
             )
