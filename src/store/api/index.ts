@@ -1,12 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { baseUrl } from 'config';
 import type { GraphQLRequest } from 'types';
-import {
-  getIntrospectionQuery,
-  printSchema,
-  buildClientSchema,
-  type IntrospectionQuery,
-} from 'graphql';
+import { getIntrospectionQuery, type IntrospectionQuery } from 'graphql';
 
 export const api = createApi({
   reducerPath: 'api',
@@ -26,7 +21,7 @@ export const api = createApi({
         },
       }),
     }),
-    getGraphQLSchema: builder.query<string, void>({
+    getGraphQLSchema: builder.query<IntrospectionQuery, void>({
       query: () => ({
         url: '',
         method: 'POST',
@@ -38,8 +33,7 @@ export const api = createApi({
         },
       }),
       transformResponse: ({ data }: { data: IntrospectionQuery }) => {
-        const graphQLSchema = buildClientSchema(data);
-        return printSchema(graphQLSchema);
+        return data;
       },
     }),
   }),
