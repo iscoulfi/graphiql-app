@@ -19,7 +19,7 @@ export const Header = () => {
         <button onClick={() => changeLanguage('ru')}>RU</button>
       </div>
       <Container>
-        <Navbar.Brand>
+        <Navbar.Brand href="/">
           <img
             src="/img/logo.svg"
             width="30"
