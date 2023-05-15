@@ -2,8 +2,7 @@ import { logout } from 'config';
 import { TbLogout } from 'react-icons/tb';
 import { useTranslation } from 'react-i18next';
 import styles from './Header.module.scss';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
+import { Container, Navbar, ButtonGroup, Button } from 'react-bootstrap';
 
 export const Header = () => {
   const { i18n } = useTranslation();
@@ -12,12 +11,10 @@ export const Header = () => {
     i18n.changeLanguage(language);
   };
 
+  const isActive = (language: 'en' | 'ru') => i18n.language === language;
+
   return (
     <Navbar sticky="top" bg="light">
-      <div className={styles.checkLanguage}>
-        <button onClick={() => changeLanguage('en')}>EN</button>
-        <button onClick={() => changeLanguage('ru')}>RU</button>
-      </div>
       <Container>
         <Navbar.Brand href="/">
           <img
@@ -28,6 +25,22 @@ export const Header = () => {
             alt="GraphQL logo"
           />
         </Navbar.Brand>
+        <ButtonGroup size="sm" className="ms-auto me-3">
+          <Button
+            active={isActive('en')}
+            variant="outline-secondary"
+            onClick={() => changeLanguage('en')}
+          >
+            EN
+          </Button>
+          <Button
+            active={isActive('ru')}
+            variant="outline-secondary"
+            onClick={() => changeLanguage('ru')}
+          >
+            RU
+          </Button>
+        </ButtonGroup>
         <TbLogout className={styles.logout} onClick={logout} />
       </Container>
     </Navbar>
