@@ -11,7 +11,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import PuffLoader from 'react-spinners/PuffLoader';
 import { useTranslation } from 'react-i18next';
-import { getByTitle } from '@testing-library/react';
 
 interface AuthFormProps {
   definition: FormDefinition;
