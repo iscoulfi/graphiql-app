@@ -32,8 +32,8 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     isLogin
-      ? logInWithEmailAndPassword(data.email, data.password)
-      : registerWithEmailAndPassword(data.username, data.email, data.password);
+      ? logInWithEmailAndPassword(data.email, data.password, t)
+      : registerWithEmailAndPassword(data.username, data.email, data.password, t);
   };
 
   const switchForm = () => {

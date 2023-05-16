@@ -26,5 +26,8 @@
   "Artem Myzrov": "Артем Мызров",
   "Kseniia Neustroeva": "Ксения Неустроева",
   "Variables": "Переменные",
-  "Headers": "Заголовки"
+  "Headers": "Заголовки",
+  "Wrong password": "Неправильный пароль",
+  "This user does not exist": "Этот пользователь не существует",
+  "This email already exists": "Эта почта уже существует"
 }

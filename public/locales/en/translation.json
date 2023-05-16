@@ -26,5 +26,8 @@
   "Artem Myzrov": "Artem Myzrov",
   "Kseniia Neustroeva": "Kseniia Neustroeva",
   "Variables": "Variables",
-  "Headers": "Headers"
+  "Headers": "Headers",
+  "Wrong password": "Wrong password",
+  "This user does not exist": "This user does not exist",
+  "This email already exists": "This email already exists"
 }
