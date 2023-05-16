@@ -13,7 +13,11 @@ export const VariablesEditor = ({ value, onVariablesChange }: VariablesEditorPro
         className={styles.variablesCode}
         value={value}
         language="json"
-        placeholder=""
+        placeholder={`{
+          "characterName": "Rick",
+          "locationId": 1,
+          "episodeIds": [1, 2]
+        }`}
         onChange={(e) => onVariablesChange(e.target.value)}
       />
     </div>

@@ -13,7 +13,7 @@ export const HeadersEditor = ({ value, onHeadersChange }: HeadersEditorProps) =>
         className={styles.headersEditor}
         value={value}
         language="json"
-        placeholder=""
+        placeholder="'Content-Type': 'application/json'"
         onChange={(e) => onHeadersChange(e.target.value)}
       />
     </div>
