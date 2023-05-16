@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from 'config';
 import styles from './Main.module.scss';
 import PuffLoader from 'react-spinners/PuffLoader';
-import { Editors } from 'components';
+import { Documentation, Editors } from 'components';
 
 export const Main = () => {
   const [user, loading] = useAuthState(auth);
@@ -19,5 +19,10 @@ export const Main = () => {
 
   if (!user) return null;
 
-  return <Editors />;
+  return (
+    <div className="d-flex">
+      <Documentation />
+      <Editors />
+    </div>
+  );
 };

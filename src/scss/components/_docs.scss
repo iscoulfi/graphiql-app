@@ -1,0 +1,21 @@
+.documentation {
+  .docs {
+    width: 290px;
+    padding: 16px;
+    border-right: 1px solid #6c757d;
+  }
+  .btn {
+    border-radius: 0 0 10px 0;
+    padding: 1px 4px 5px 2px;
+
+    .icon {
+      width: 22px;
+      height: 22px;
+    }
+  }
+  .collapsing {
+    -webkit-transition: none;
+    transition: none;
+    display: none;
+  }
+}
