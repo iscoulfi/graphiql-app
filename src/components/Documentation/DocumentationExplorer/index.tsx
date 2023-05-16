@@ -35,7 +35,7 @@ export const DocumentationExplorer = ({ schema }: { schema: GraphQLSchema }) => 
           <div className="docs">
             {navigationHistory.length > 0 && (
               <Breadcrumb.Item href="#" onClick={navigateBack}>
-                {navigationHistory[navigationHistory.length - 2]}
+                <span className="crumb">{navigationHistory[navigationHistory.length - 2]}</span>
               </Breadcrumb.Item>
             )}
             <Type type={type || query} />
