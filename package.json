@@ -13,6 +13,7 @@
   "dependencies": {
     "@monaco-editor/react": "^4.5.1",
     "@reduxjs/toolkit": "^1.9.5",
+    "@uiw/react-textarea-code-editor": "^2.1.1",
     "bootstrap": "^5.2.3",
     "firebase": "^9.21.0",
     "graphql": "^16.6.0",
