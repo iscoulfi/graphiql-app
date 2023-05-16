@@ -10,18 +10,11 @@ export const VariablesEditor = ({ value, onVariablesChange }: VariablesEditorPro
   return (
     <div className={styles.variablesEditor}>
       <CodeEditor
+        className={styles.variablesCode}
         value={value}
         language="json"
         placeholder=""
         onChange={(e) => onVariablesChange(e.target.value)}
-        padding={15}
-        style={{
-          height: '100%',
-          fontSize: 16,
-          backgroundColor: '#f5f5f5',
-          fontFamily:
-            'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
-        }}
       />
     </div>
   );

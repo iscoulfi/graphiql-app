@@ -10,6 +10,7 @@ export const OperationEditor = ({ value, onOperationChange }: OperationEditorPro
   return (
     <div className={styles.operationEditor}>
       <CodeEditor
+        className={styles.operationCode}
         value={value}
         language="graphql"
         placeholder="query {
@@ -17,14 +18,6 @@ export const OperationEditor = ({ value, onOperationChange }: OperationEditorPro
         }
         "
         onChange={(e) => onOperationChange(e.target.value)}
-        padding={15}
-        style={{
-          height: '100%',
-          fontSize: 16,
-          backgroundColor: '#f5f5f5',
-          fontFamily:
-            'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
-        }}
       />
     </div>
   );

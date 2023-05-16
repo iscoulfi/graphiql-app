@@ -17,18 +17,11 @@ export const Response = ({ value, loading }: ResponseEditorProps) => {
       )}
       <div className={styles.responseEditor}>
         <CodeEditor
+          className={styles.responseCode}
           readOnly={true}
           value={value}
           language="graphql"
           placeholder="//response.."
-          padding={15}
-          style={{
-            height: '100%',
-            fontSize: 16,
-            backgroundColor: '#f5f5f5',
-            fontFamily:
-              'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
-          }}
         />
       </div>
     </>
