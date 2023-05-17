@@ -1,5 +1,5 @@
-import { OnChange, Editor } from '@monaco-editor/react';
-import { editorOptions } from 'config';
+import CodeEditor from '@uiw/react-textarea-code-editor';
+import { variablesPlaceholder } from 'config';
 import styles from './VariablesEditor.module.scss';
 
 interface VariablesEditorProps {
@@ -8,11 +8,15 @@ interface VariablesEditorProps {
 }
 
 export const VariablesEditor = ({ value, onVariablesChange }: VariablesEditorProps) => {
-  const onChange: OnChange = (value) => onVariablesChange(value ?? '');
-
   return (
     <div className={styles.variablesEditor}>
-      <Editor language="json" value={value} options={editorOptions} onChange={onChange} />
+      <CodeEditor
+        className={styles.variablesCode}
+        value={value}
+        language="json"
+        placeholder={variablesPlaceholder}
+        onChange={(e) => onVariablesChange(e.target.value)}
+      />
     </div>
   );
 };

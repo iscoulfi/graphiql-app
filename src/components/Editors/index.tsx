@@ -12,6 +12,7 @@ export const Editors = () => {
   const [variables, setVariables] = useState('');
   const [headers, setHeaders] = useState('');
   const [parseError, setParseError] = useState('');
+  const [tab, setTab] = useState<string | null>(null);
 
   const [getGraphQLQuery, graphQLResponse] = useLazyGetGraphQLQuery();
   const { data, error, isFetching } = graphQLResponse;
@@ -34,18 +35,27 @@ export const Editors = () => {
     }
   };
 
-  const [tab, setTab] = useState<string | null>('variables');
+  const handleTabSelect = (eventKey: string | null) => {
+    setTab((prevTab) => (prevTab === eventKey ? null : eventKey));
+  };
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
       <div className={styles.editorWrapper}>
         <OperationEditor value={operation} onOperationChange={setOperation} />
-        <Tabs activeKey={tab ?? 'variables'} onSelect={setTab} variant="pills">
+        <Tabs
+          className={styles.tabs}
+          activeKey={tab ?? ''}
+          onSelect={handleTabSelect}
+          variant="pills"
+        >
           <Tab eventKey="variables" title="Variables">
-            <VariablesEditor value={variables} onVariablesChange={setVariables} />
+            {tab === 'variables' && (
+              <VariablesEditor value={variables} onVariablesChange={setVariables} />
+            )}
           </Tab>
           <Tab eventKey="headers" title="Headers">
-            <HeadersEditor value={headers} onHeadersChange={setHeaders} />
+            {tab === 'headers' && <HeadersEditor value={headers} onHeadersChange={setHeaders} />}
           </Tab>
         </Tabs>
       </div>

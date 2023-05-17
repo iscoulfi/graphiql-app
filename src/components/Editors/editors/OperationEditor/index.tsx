@@ -1,5 +1,5 @@
-import { Editor, OnChange } from '@monaco-editor/react';
-import { editorOptions } from 'config';
+import CodeEditor from '@uiw/react-textarea-code-editor';
+import { operationPlaceholder } from 'config';
 import styles from './OperationEditor.module.scss';
 
 interface OperationEditorProps {
@@ -8,11 +8,15 @@ interface OperationEditorProps {
 }
 
 export const OperationEditor = ({ value, onOperationChange }: OperationEditorProps) => {
-  const onChange: OnChange = (value) => onOperationChange(value ?? '');
-
   return (
     <div className={styles.operationEditor}>
-      <Editor language="graphql" value={value} options={editorOptions} onChange={onChange} />
+      <CodeEditor
+        className={styles.operationCode}
+        value={value}
+        language="graphql"
+        placeholder={operationPlaceholder}
+        onChange={(e) => onOperationChange(e.target.value)}
+      />
     </div>
   );
 };

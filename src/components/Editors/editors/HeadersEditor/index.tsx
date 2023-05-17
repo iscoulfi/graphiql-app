@@ -1,5 +1,5 @@
-import { Editor, OnChange } from '@monaco-editor/react';
-import { editorOptions } from 'config';
+import CodeEditor from '@uiw/react-textarea-code-editor';
+import { headersPlaceholder } from 'config';
 import styles from './HeadersEditor.module.scss';
 
 interface HeadersEditorProps {
@@ -8,10 +8,15 @@ interface HeadersEditorProps {
 }
 
 export const HeadersEditor = ({ value, onHeadersChange }: HeadersEditorProps) => {
-  const onChange: OnChange = (value) => onHeadersChange(value ?? '');
   return (
-    <div className={styles.headersEditor}>
-      <Editor language="json" value={value} options={editorOptions} onChange={onChange} />
+    <div>
+      <CodeEditor
+        className={styles.headersEditor}
+        value={value}
+        language="json"
+        placeholder={headersPlaceholder}
+        onChange={(e) => onHeadersChange(e.target.value)}
+      />
     </div>
   );
 };

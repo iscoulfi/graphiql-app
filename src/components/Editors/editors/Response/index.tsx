@@ -1,7 +1,7 @@
-import { Editor } from '@monaco-editor/react';
-import { editorOptions } from 'config';
+import CodeEditor from '@uiw/react-textarea-code-editor';
 import styles from './Response.module.scss';
 import PuffLoader from 'react-spinners/PuffLoader';
+import { responsePlaceholder } from 'config';
 
 interface ResponseEditorProps {
   value: string;
@@ -17,7 +17,13 @@ export const Response = ({ value, loading }: ResponseEditorProps) => {
         </div>
       )}
       <div className={styles.responseEditor}>
-        <Editor language="graphql" value={value} options={{ ...editorOptions, readOnly: true }} />
+        <CodeEditor
+          className={styles.responseCode}
+          readOnly={true}
+          value={value}
+          language="graphql"
+          placeholder={responsePlaceholder}
+        />
       </div>
     </>
   );
