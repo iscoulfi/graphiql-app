@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from 'store';
 import App from './App';
 import { I18nextProvider } from 'react-i18next';
-import { i18n } from 'utils';
+import { i18n } from 'helpers';
 import './scss/index.scss';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
