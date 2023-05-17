@@ -1,0 +1,60 @@
+%font-gray {
+  color: #6f7c90;
+  font-size: 15px;
+}
+
+.documentation {
+  .docs {
+    width: 290px;
+    padding: 16px;
+    min-height: 100%;
+    border-right: 1px solid #6c757d;
+  }
+  .btn {
+    border-radius: 0 0 10px 0;
+    padding: 1px 4px 5px 2px;
+
+    .icon {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  .collapsing {
+    -webkit-transition: none;
+    transition: none;
+    display: none;
+  }
+
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-weight: 700;
+    @extend %font-gray;
+  }
+
+  p {
+    @extend %font-gray;
+  }
+
+  .key {
+    color: #6a8ecf;
+    font-size: 15px;
+  }
+
+  .type {
+    color: #ec9f09;
+    font-size: 15px;
+  }
+
+  .arg {
+    @extend %font-gray;
+  }
+
+  .crumb {
+    color: #e10098;
+  }
+}
