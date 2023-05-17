@@ -1,6 +1,7 @@
 import { buildClientSchema } from 'graphql';
 import { useGetGraphQLSchemaQuery } from 'store/api';
-import { DocumentationExplorer } from './DocumentationExplorer';
+import { Suspense, lazy } from 'react';
+const DocumentationExplorer = lazy(() => import('./DocumentationExplorer'));
 
 export const Documentation = () => {
   const { data } = useGetGraphQLSchemaQuery();
@@ -9,5 +10,9 @@ export const Documentation = () => {
 
   const schema = buildClientSchema(data);
 
-  return <DocumentationExplorer schema={schema} />;
+  return (
+    <Suspense fallback={null}>
+      <DocumentationExplorer schema={schema} />
+    </Suspense>
+  );
 };
