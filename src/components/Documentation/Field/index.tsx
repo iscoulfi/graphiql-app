@@ -12,9 +12,9 @@ export const Field = ({ field, isInput }: FieldProps) => {
   return (
     <div>
       <div>
-        <span>{field.name}</span>
+        <span className="key">{field.name}</span>
         {!isInput() && field.args.length > 0 && (
-          <span>
+          <span className="arg">
             ({' '}
             {field.args.map((arg, idx) => (
               <span key={arg.name}>

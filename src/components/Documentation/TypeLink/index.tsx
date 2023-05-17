@@ -12,16 +12,16 @@ export const TypeLink = ({ type }: { type: GraphQLType }) => {
 
   if (type instanceof GraphQLNonNull || type instanceof GraphQLList) {
     return (
-      <>
+      <span className="arg">
         {type instanceof GraphQLList && '['}
         <TypeLink type={type.ofType} />
         {type instanceof GraphQLNonNull ? '!' : ''}
         {type instanceof GraphQLList && ']'}
-      </>
+      </span>
     );
   } else {
     return (
-      <a href="#" onClick={handleClick}>
+      <a href="#" onClick={handleClick} className="type">
         {type.toString()}
       </a>
     );

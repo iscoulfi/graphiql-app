@@ -11,7 +11,7 @@ export const Type = ({ type }: { type: GraphQLType }) => {
   if (type instanceof GraphQLScalarType) {
     return (
       <div>
-        <h3 id={type.name}>{type.name}</h3>
+        <h1 id={type.name}>{type.name}</h1>
         <p>{type.description}</p>
       </div>
     );
@@ -22,9 +22,9 @@ export const Type = ({ type }: { type: GraphQLType }) => {
 
     return (
       <div>
-        <h3 id={type.name}>{type.name}</h3>
+        <h1 id={type.name}>{type.name}</h1>
         <p>{type.description}</p>
-        <h6>Fields:</h6>
+        <h2>Fields:</h2>
         <ul>
           {Object.values(fields).map((field) => (
             <li key={field.name}>

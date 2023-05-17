@@ -43,7 +43,12 @@ export const Editors = () => {
     <form className={styles.container} onSubmit={handleSubmit}>
       <div className={styles.editorWrapper}>
         <OperationEditor value={operation} onOperationChange={setOperation} />
-        <Tabs activeKey={tab ?? 'variables'} onSelect={setTab} variant="pills">
+        <Tabs
+          className={styles.tabs}
+          activeKey={tab ?? 'variables'}
+          onSelect={setTab}
+          variant="pills"
+        >
           <Tab eventKey="variables" title={t('Variables')}>
             <VariablesEditor value={variables} onVariablesChange={setVariables} />
           </Tab>
