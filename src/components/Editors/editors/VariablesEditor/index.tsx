@@ -1,4 +1,5 @@
 import CodeEditor from '@uiw/react-textarea-code-editor';
+import { variablesPlaceholder } from 'config';
 import styles from './VariablesEditor.module.scss';
 
 interface VariablesEditorProps {
@@ -13,11 +14,7 @@ export const VariablesEditor = ({ value, onVariablesChange }: VariablesEditorPro
         className={styles.variablesCode}
         value={value}
         language="json"
-        placeholder={`{
-          "characterName": "Rick",
-          "locationId": 1,
-          "episodeIds": [1, 2]
-        }`}
+        placeholder={variablesPlaceholder}
         onChange={(e) => onVariablesChange(e.target.value)}
       />
     </div>

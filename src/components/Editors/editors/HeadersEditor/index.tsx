@@ -1,4 +1,5 @@
 import CodeEditor from '@uiw/react-textarea-code-editor';
+import { headersPlaceholder } from 'config';
 import styles from './HeadersEditor.module.scss';
 
 interface HeadersEditorProps {
@@ -13,7 +14,7 @@ export const HeadersEditor = ({ value, onHeadersChange }: HeadersEditorProps) =>
         className={styles.headersEditor}
         value={value}
         language="json"
-        placeholder={`{"Content-Type": "application/json"}`}
+        placeholder={headersPlaceholder}
         onChange={(e) => onHeadersChange(e.target.value)}
       />
     </div>

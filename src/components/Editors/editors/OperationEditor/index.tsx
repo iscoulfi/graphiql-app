@@ -1,4 +1,5 @@
 import CodeEditor from '@uiw/react-textarea-code-editor';
+import { operationPlaceholder } from 'config';
 import styles from './OperationEditor.module.scss';
 
 interface OperationEditorProps {
@@ -13,19 +14,7 @@ export const OperationEditor = ({ value, onOperationChange }: OperationEditorPro
         className={styles.operationCode}
         value={value}
         language="graphql"
-        placeholder={`query {
-          characters(page: 2, filter: { name: "rick" }) {
-              info {
-                  count
-              }
-              results {
-                  name
-              }
-          }
-          character(id: 1) {
-              id
-          }
-      }`}
+        placeholder={operationPlaceholder}
         onChange={(e) => onOperationChange(e.target.value)}
       />
     </div>

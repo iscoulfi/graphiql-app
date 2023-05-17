@@ -1,12 +1,4 @@
-export const editorOptions = {
-  minimap: { enabled: false },
-  wordWrap: 'on',
-  fontSize: 16,
-  suggestOnTriggerCharacters: true,
-  renderWhitespace: 'boundary',
-} as const;
-
-export const response = `{
+export const responsePlaceholder = `{
   "data": {
     "characters": {
       "info": {
@@ -86,5 +78,27 @@ export const response = `{
         "id": "2"
       }
     ]
+  }
+}`;
+
+export const variablesPlaceholder = `{
+  "characterName": "Rick",
+  "locationId": 1,
+  "episodeIds": [1, 2]
+}`;
+
+export const headersPlaceholder = `{"Content-Type": "application/json"}`;
+
+export const operationPlaceholder = `query {
+  characters(page: 2, filter: { name: "rick" }) {
+      info {
+          count
+      }
+      results {
+          name
+      }
+  }
+  character(id: 1) {
+      id
   }
 }`;
