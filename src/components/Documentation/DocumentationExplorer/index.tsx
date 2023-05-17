@@ -5,7 +5,7 @@ import { Type } from '../Type';
 import { Breadcrumb, Button, Collapse } from 'react-bootstrap';
 import { RiBook2Fill, RiBook2Line } from 'react-icons/ri';
 
-export const DocumentationExplorer = ({ schema }: { schema: GraphQLSchema }) => {
+const DocumentationExplorer = ({ schema }: { schema: GraphQLSchema }) => {
   const [type, setType] = useState<GraphQLType | undefined>();
   const [navigationHistory, setNavigationHistory] = useState<string[]>(['Query']);
   const [open, setOpen] = useState(false);
@@ -48,3 +48,5 @@ export const DocumentationExplorer = ({ schema }: { schema: GraphQLSchema }) => 
     </NavigationContext.Provider>
   );
 };
+
+export default DocumentationExplorer;
