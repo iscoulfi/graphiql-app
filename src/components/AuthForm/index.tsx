@@ -52,7 +52,7 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
 
   return (
     <div className={styles.auth}>
-      <h2 className="fw-bold mb-5">{t(title)}</h2>
+      <h2 className={styles.title}>{t(title)}</h2>
       <Form noValidate onSubmit={handleSubmit(onSubmit)}>
         {!isLogin && (
           <Form.Group className="mb-3">

@@ -10,11 +10,17 @@
   }
 }
 
+.title {
+  color: #e10098;
+  font-weight: 700;
+  margin-bottom: 48px;
+}
+
 .link {
-  color: #0275d8;
+  color: #e10098;
   cursor: pointer;
   &:hover {
-    color: #0000ff;
+    color: #ff0000;
   }
 }
 
