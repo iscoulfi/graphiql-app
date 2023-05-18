@@ -1,5 +1,5 @@
 import CodeEditor from '@uiw/react-textarea-code-editor';
-import { variablesPlaceholder } from 'config';
+import { variablesPlaceholder } from 'assets';
 import styles from './VariablesEditor.module.scss';
 
 interface VariablesEditorProps {

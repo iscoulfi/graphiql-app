@@ -1,7 +1,7 @@
 import CodeEditor from '@uiw/react-textarea-code-editor';
 import styles from './Response.module.scss';
 import PuffLoader from 'react-spinners/PuffLoader';
-import { responsePlaceholder } from 'config';
+import { responsePlaceholder } from 'assets';
 
 interface ResponseEditorProps {
   value: string;

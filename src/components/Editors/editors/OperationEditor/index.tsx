@@ -1,5 +1,5 @@
 import CodeEditor from '@uiw/react-textarea-code-editor';
-import { operationPlaceholder } from 'config';
+import { operationPlaceholder } from 'assets';
 import styles from './OperationEditor.module.scss';
 
 interface OperationEditorProps {
