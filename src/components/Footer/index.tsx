@@ -1,8 +1,11 @@
 import styles from './Footer.module.scss';
 import { useTranslation } from 'react-i18next';
+import classNames from 'classnames';
+import 'bootstrap/scss/bootstrap.scss';
 
 export const Footer = () => {
   const { t } = useTranslation();
+
   return (
     <footer className={styles.footer}>
       <a href="https://rs.school/react" target="_blank" rel="noreferrer">
@@ -11,15 +14,18 @@ export const Footer = () => {
 
       <div className={styles.accounts}>
         <a href="https://github.com/iscoulfi" target="_blank" rel="noreferrer">
-          <span>{t('Konstantin Ulanov')}</span>
+          <span className="d-none d-md-inline">{t('Konstantin Ulanov')}</span>
+          <img src="/img/Konstantin.webp" alt="GitHub" className="d-md-none" />
         </a>
-        <span>-</span>
+        <span className={styles.dash}>-</span>
         <a href="https://github.com/artemmyzrov" target="_blank" rel="noreferrer">
-          <span>{t('Artem Myzrov')}</span>
+          <span className="d-none d-md-inline">{t('Artem Myzrov')} </span>
+          <img src="/img/Artem.webp" alt="GitHub" className="d-md-none" />
         </a>
-        <span>-</span>
+        <span className={styles.dash}>-</span>
         <a href="https://github.com/oooo0000ooo0000ooo" target="_blank" rel="noreferrer">
-          <span>{t('Kseniia Neustroeva')}</span>
+          <span className="d-none d-md-inline">{t('Kseniia Neustroeva')}</span>
+          <img src="/img/Xenia.webp" alt="GitHub" className="d-md-none" />
         </a>
       </div>
 
