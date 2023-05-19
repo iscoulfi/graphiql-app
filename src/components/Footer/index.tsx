@@ -22,14 +22,9 @@ export const Footer = () => {
             <img src="/img/Artem.webp" alt="GitHub" className="d-md-none" />
           </a>
           <span className={styles.dash}>-</span>
-          <a
-            className={styles.xenia}
-            href="https://github.com/oooo0000ooo0000ooo"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://github.com/oooo0000ooo0000ooo" target="_blank" rel="noreferrer">
             <span className="d-none d-md-inline">{t('Kseniia Neustroeva')}</span>
-            <img src="/img/Xenia.webp" alt="GitHub" className="d-md-none" />
+            <img src="/img/Xenia.webp" alt="GitHub" className=" d-md-none" />
           </a>
         </div>
 
