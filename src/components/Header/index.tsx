@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { TbLogout } from 'react-icons/tb';
 import { useTranslation } from 'react-i18next';
 import styles from './Header.module.scss';
@@ -28,10 +29,14 @@ export const Header = () => {
     };
   }, []);
 
+  const navigate = useNavigate();
+
+  const onBrandClick = () => navigate('/');
+
   return (
     <Navbar className={`border-bottom ${styles.header} ${isSticky ? 'bg-dark' : ''}`} sticky="top">
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand className={styles.link} onClick={onBrandClick}>
           <img
             src="/img/logo.svg"
             width="30"
