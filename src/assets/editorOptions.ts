@@ -1,4 +1,4 @@
-export const responsePlaceholder = 'Your answer will appear here. .';
+export const responsePlaceholder = 'Your response will appear here . .';
 
 export const variablesPlaceholder = `{
   "characterName": "Rick",
