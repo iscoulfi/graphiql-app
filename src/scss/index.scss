@@ -1,3 +1,5 @@
+$primary: #e10098;
+
 @import '../node_modules/bootstrap/scss/bootstrap';
 @import './components/docs';
 
@@ -35,13 +37,14 @@ img {
 }
 
 .app {
-  max-width: 1400px;
   min-height: 100vh;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
 
 .main {
   flex: 1 1 auto;
+  margin: auto;
+  max-width: 1400px;
+  width: 100%;
 }
