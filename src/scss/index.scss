@@ -36,10 +36,13 @@ img {
 
 .app {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .main {
   flex: 1 1 auto;
-  margin: 0 auto;
+  margin: auto;
   max-width: 1400px;
+  width: 100%;
 }
