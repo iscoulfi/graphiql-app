@@ -7,6 +7,7 @@
     color: #ff0000;
   }
 }
+
 .checkLanguage,
 .checkLanguage button {
   display: flex;
@@ -14,4 +15,8 @@
   border-radius: 5px;
   gap: 3px;
   padding: 1px;
+}
+
+.header {
+  transition: background-color 0.2s ease-in-out;
 }

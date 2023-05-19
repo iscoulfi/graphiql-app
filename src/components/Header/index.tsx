@@ -1,4 +1,4 @@
-import { logout } from 'config';
+import { useState, useEffect } from 'react';
 import { TbLogout } from 'react-icons/tb';
 import { useTranslation } from 'react-i18next';
 import styles from './Header.module.scss';
@@ -13,8 +13,23 @@ export const Header = () => {
 
   const isActive = (language: 'en' | 'ru') => i18n.language === language;
 
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScroll = window.scrollY > 0;
+      setIsSticky(isScroll);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <Navbar sticky="top" bg="light">
+    <Navbar className={`border-bottom ${styles.header} ${isSticky ? 'bg-dark' : ''}`} sticky="top">
       <Container>
         <Navbar.Brand href="/">
           <img
@@ -30,6 +45,7 @@ export const Header = () => {
             active={isActive('en')}
             variant="outline-secondary"
             onClick={() => changeLanguage('en')}
+            className={isSticky ? 'text-white' : ''}
           >
             EN
           </Button>
@@ -37,6 +53,7 @@ export const Header = () => {
             active={isActive('ru')}
             variant="outline-secondary"
             onClick={() => changeLanguage('ru')}
+            className={isSticky ? 'text-white' : ''}
           >
             RU
           </Button>
