@@ -1,13 +1,23 @@
-.footer {
-  display: flex;
-  justify-content: space-around;
-  background-color: #f8f9fa;
-  flex-wrap: wrap;
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
 
+.footer {
+  background-color: #f8f9fa;
+
+  .contant {
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
   .logo {
     width: 100px;
     padding: 16px;
+    object-fit: contain;
   }
+
   .accounts {
     display: flex;
     align-items: center;
@@ -18,6 +28,31 @@
       &:hover {
         color: #e535ab;
       }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+
+    .logo {
+      width: 100px;
+      height: 50px;
+    }
+    .accounts {
+      gap: 10px;
+    }
+    .dash {
+      display: none;
+    }
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 25px;
+      object-fit: cover;
+      gap: 10px;
     }
   }
 }
