@@ -29,5 +29,7 @@
   "Headers": "Headers",
   "Wrong password": "Wrong password",
   "This user does not exist": "This user does not exist",
-  "This email already exists": "This email already exists"
+  "This email already exists": "This email already exists",
+  "Your response will appear here . .": "Your response will appear here . .",
+  "Enter your request": "Enter your request . ."
 }
