@@ -1,0 +1,10 @@
+.logout {
+  color: #e535ab;
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem;
+  cursor: pointer;
+  &:hover {
+    color: #ff0000;
+  }
+}

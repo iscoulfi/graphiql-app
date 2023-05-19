@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TbLogout } from 'react-icons/tb';
 import { useTranslation } from 'react-i18next';
 import styles from './Header.module.scss';
 import { Container, Navbar, ButtonGroup, Button } from 'react-bootstrap';
+import { HeaderAuthentication } from './components';
 
 export const Header = () => {
   const { i18n } = useTranslation();
@@ -31,12 +31,13 @@ export const Header = () => {
 
   const navigate = useNavigate();
 
-  const onBrandClick = () => navigate('/');
-
   return (
-    <Navbar className={`border-bottom ${styles.header} ${isSticky ? 'bg-dark' : ''}`} sticky="top">
+    <Navbar
+      className={`border-bottom ${styles.header} ${isSticky ? 'bg-dark text-white' : ''}`}
+      sticky="top"
+    >
       <Container>
-        <Navbar.Brand className={styles.link} onClick={onBrandClick}>
+        <Navbar.Brand className={styles.link} onClick={() => navigate('/')}>
           <img
             src="/img/logo.svg"
             width="30"
@@ -45,25 +46,27 @@ export const Header = () => {
             alt="GraphQL logo"
           />
         </Navbar.Brand>
-        <ButtonGroup size="sm" className="ms-auto me-3">
-          <Button
-            active={isActive('en')}
-            variant="outline-secondary"
-            onClick={() => changeLanguage('en')}
-            className={isSticky ? 'text-white' : ''}
-          >
-            EN
-          </Button>
-          <Button
-            active={isActive('ru')}
-            variant="outline-secondary"
-            onClick={() => changeLanguage('ru')}
-            className={isSticky ? 'text-white' : ''}
-          >
-            RU
-          </Button>
-        </ButtonGroup>
-        <TbLogout className={styles.logout} onClick={logout} />
+        <Container className="d-flex justify-content-end p-0">
+          <HeaderAuthentication className={isSticky ? 'text-white' : ''} />
+          <ButtonGroup size="sm" className="ms-2">
+            <Button
+              active={isActive('en')}
+              variant="outline-secondary"
+              onClick={() => changeLanguage('en')}
+              className={isSticky ? 'text-white' : ''}
+            >
+              EN
+            </Button>
+            <Button
+              active={isActive('ru')}
+              variant="outline-secondary"
+              onClick={() => changeLanguage('ru')}
+              className={isSticky ? 'text-white' : ''}
+            >
+              RU
+            </Button>
+          </ButtonGroup>
+        </Container>
       </Container>
     </Navbar>
   );
