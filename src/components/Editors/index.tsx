@@ -4,12 +4,13 @@ import { SubmitButton } from './components';
 import { useLazyGetGraphQLQuery } from 'store/api';
 import { parse } from 'utils';
 import { useTranslation } from 'react-i18next';
+import { operationValue } from 'assets';
 import styles from './Editors.module.scss';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
 export const Editors = () => {
-  const [operation, setOperation] = useState('');
+  const [operation, setOperation] = useState(operationValue);
   const [variables, setVariables] = useState('');
   const [headers, setHeaders] = useState('');
   const [parseError, setParseError] = useState('');

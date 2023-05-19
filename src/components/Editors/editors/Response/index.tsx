@@ -2,6 +2,7 @@ import CodeEditor from '@uiw/react-textarea-code-editor';
 import styles from './Response.module.scss';
 import PuffLoader from 'react-spinners/PuffLoader';
 import { responsePlaceholder } from 'assets';
+import { useTranslation } from 'react-i18next';
 
 interface ResponseEditorProps {
   value: string;
@@ -9,6 +10,7 @@ interface ResponseEditorProps {
 }
 
 export const Response = ({ value, loading }: ResponseEditorProps) => {
+  const { t } = useTranslation();
   return (
     <>
       {loading && (
@@ -22,7 +24,7 @@ export const Response = ({ value, loading }: ResponseEditorProps) => {
           readOnly={true}
           value={value}
           language="graphql"
-          placeholder={responsePlaceholder}
+          placeholder={t(responsePlaceholder) as string}
         />
       </div>
     </>
