@@ -3,6 +3,7 @@ import { HeadersEditor, OperationEditor, VariablesEditor, Response } from './edi
 import { SubmitButton } from './components';
 import { useLazyGetGraphQLQuery } from 'store/api';
 import { parse } from 'utils';
+import { useTranslation } from 'react-i18next';
 import styles from './Editors.module.scss';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -13,6 +14,8 @@ export const Editors = () => {
   const [headers, setHeaders] = useState('');
   const [parseError, setParseError] = useState('');
   const [tab, setTab] = useState<string | null>(null);
+
+  const { t } = useTranslation();
 
   const [getGraphQLQuery, graphQLResponse] = useLazyGetGraphQLQuery();
   const { data, error, isFetching } = graphQLResponse;
@@ -49,12 +52,12 @@ export const Editors = () => {
           onSelect={handleTabSelect}
           variant="pills"
         >
-          <Tab eventKey="variables" title="Variables">
+          <Tab eventKey="variables" title={t('Variables')}>
             {tab === 'variables' && (
               <VariablesEditor value={variables} onVariablesChange={setVariables} />
             )}
           </Tab>
-          <Tab eventKey="headers" title="Headers">
+          <Tab eventKey="headers" title={t('Headers')}>
             {tab === 'headers' && <HeadersEditor value={headers} onHeadersChange={setHeaders} />}
           </Tab>
         </Tabs>

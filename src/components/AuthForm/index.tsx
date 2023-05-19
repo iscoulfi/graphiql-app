@@ -11,7 +11,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import PuffLoader from 'react-spinners/PuffLoader';
 import { useTranslation } from 'react-i18next';
-import { getByTitle } from '@testing-library/react';
 
 interface AuthFormProps {
   definition: FormDefinition;
@@ -33,8 +32,8 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     isLogin
-      ? logInWithEmailAndPassword(data.email, data.password)
-      : registerWithEmailAndPassword(data.username, data.email, data.password);
+      ? logInWithEmailAndPassword(data.email, data.password, t)
+      : registerWithEmailAndPassword(data.username, data.email, data.password, t);
   };
 
   const switchForm = () => {
@@ -63,14 +62,14 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
               {...register('username', {
                 required: {
                   value: true,
-                  message: t('Please enter username'),
+                  message: 'Please enter username',
                 },
               })}
               autoComplete="off"
               isInvalid={!!errors.username}
             />
-            {errors.username ? (
-              <span className={styles.error}>{errors.username.message}</span>
+            {errors.username?.message ? (
+              <span className={styles.error}>{t(errors.username.message)}</span>
             ) : (
               <span>{t('Username')}</span>
             )}
@@ -84,18 +83,18 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
             {...register('email', {
               required: {
                 value: true,
-                message: t('Please enter e-mail'),
+                message: 'Please enter e-mail',
               },
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: t('Invalid email address'),
+                message: 'Invalid email address',
               },
             })}
             autoComplete="off"
             isInvalid={!!errors.email}
           />
-          {errors.email ? (
-            <span className={styles.error}>{errors.email.message}</span>
+          {errors.email?.message ? (
+            <span className={styles.error}>{t(errors.email.message)}</span>
           ) : (
             <span>{t('E-mail')}</span>
           )}
@@ -108,17 +107,17 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
             {...register('password', {
               required: {
                 value: true,
-                message: t('Please enter password'),
+                message: 'Please enter password',
               },
               pattern: {
                 value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-                message: t('Length error'),
+                message: 'Length error',
               },
             })}
             isInvalid={!!errors.password}
           />
-          {errors.password ? (
-            <span className={styles.error}>{errors.password.message}</span>
+          {errors.password?.message ? (
+            <span className={styles.error}>{t(errors.password.message)}</span>
           ) : (
             <span>{t('Password')}</span>
           )}

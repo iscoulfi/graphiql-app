@@ -17,6 +17,6 @@
     "jsx": "react-jsx",
     "baseUrl": "src"
   },
-  "include": ["src", "i18n.ts"],
+  "include": ["src", "src/helpers/i18n/index.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

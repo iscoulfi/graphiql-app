@@ -1,5 +1,5 @@
 import CodeEditor from '@uiw/react-textarea-code-editor';
-import { headersPlaceholder } from 'config';
+import { headersPlaceholder } from 'assets';
 import styles from './HeadersEditor.module.scss';
 
 interface HeadersEditorProps {
