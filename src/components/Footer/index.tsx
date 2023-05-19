@@ -1,6 +1,5 @@
 import styles from './Footer.module.scss';
 import { useTranslation } from 'react-i18next';
-import 'bootstrap/scss/bootstrap.scss';
 
 export const Footer = () => {
   const { t } = useTranslation();
