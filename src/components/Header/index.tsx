@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import styles from './Header.module.scss';
 import { Container, Navbar, ButtonGroup, Button } from 'react-bootstrap';
 import { HeaderAuthentication } from './components';
 
@@ -32,12 +31,9 @@ export const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <Navbar
-      className={`border-bottom ${styles.header} ${isSticky ? 'bg-dark text-white' : ''}`}
-      sticky="top"
-    >
+    <Navbar className={`border-bottom header ${isSticky ? 'bg-dark text-white' : ''}`} sticky="top">
       <Container>
-        <Navbar.Brand className={styles.link} onClick={() => navigate('/')}>
+        <Navbar.Brand className="link" onClick={() => navigate('/')}>
           <img
             src="/img/logo.svg"
             width="30"
