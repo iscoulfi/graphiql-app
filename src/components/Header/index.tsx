@@ -1,25 +1,30 @@
-import { logout } from 'config';
-import { TbLogout } from 'react-icons/tb';
-import { useTranslation } from 'react-i18next';
-import styles from './Header.module.scss';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Container, Navbar } from 'react-bootstrap';
+import { HeaderAuthentication, LanguageSelector } from './components';
 
 export const Header = () => {
-  const { i18n } = useTranslation();
+  const [isSticky, setIsSticky] = useState(false);
 
-  const changeLanguage = (language: string | undefined) => {
-    i18n.changeLanguage(language);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScroll = window.scrollY > 0;
+      setIsSticky(isScroll);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const navigate = useNavigate();
 
   return (
-    <Navbar sticky="top" bg="light">
-      <div className={styles.checkLanguage}>
-        <button onClick={() => changeLanguage('en')}>EN</button>
-        <button onClick={() => changeLanguage('ru')}>RU</button>
-      </div>
+    <Navbar className={`border-bottom header ${isSticky ? 'bg-dark text-white' : ''}`} sticky="top">
       <Container>
-        <Navbar.Brand>
+        <Navbar.Brand className="link" onClick={() => navigate('/')}>
           <img
             src="/img/logo.svg"
             width="30"
@@ -28,7 +33,10 @@ export const Header = () => {
             alt="GraphQL logo"
           />
         </Navbar.Brand>
-        <TbLogout className={styles.logout} onClick={logout} />
+        <Container className="d-flex justify-content-end p-0">
+          <HeaderAuthentication className={isSticky ? 'text-white' : ''} />
+          <LanguageSelector className={isSticky ? 'text-white' : ''} />
+        </Container>
       </Container>
     </Navbar>
   );
