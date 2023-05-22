@@ -26,7 +26,7 @@ export const Welcome = () => {
         <Card.Text className="text-left">{t('Welcome text')}</Card.Text>
         <Card.Text className="text-left">{t('Created')}</Card.Text>
       </Container>
-      <Card className="col-md-4 col-sm-10 col-lg-4 text-justify h-100">
+      <Card className="col-md-4 col-sm-6 col-lg-4 text-justify h-100">
         <Card.Body className="text-center mx-auto">
           <div className={styles.object}>
             <object type="image/svg+xml" data="/img/logo.svg" />
@@ -42,7 +42,7 @@ export const Welcome = () => {
               {t('Go to main page')}
             </Button>
           ) : (
-            <Stack gap={2} className="col-md-8 mx-auto">
+            <Stack gap={2} className="mx-auto col-lg-9">
               <Button onClick={onSignInClick} variant="outline-secondary">
                 {t('Sign in')}
               </Button>
