@@ -1,8 +1,16 @@
+@import '../node_modules/bootstrap/scss/bootstrap';
+
 .container {
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
+}
+
+@include media-breakpoint-down(lg) {
+  .container {
+    flex-direction: column;
+  }
 }
 
 .editorWrapper {
