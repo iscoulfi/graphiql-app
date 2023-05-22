@@ -24,6 +24,12 @@ export const Welcome = () => {
       <Container className="col-md-6 col-sm-10 col-lg-6 m-0">
         <h1 className={styles.title}>{t('Welcome title')}</h1>
         <Card.Text className="text-left">{t('Welcome text')}</Card.Text>
+        <Card.Text className="text-left">
+          <a href="https://rickandmortyapi.com/graphql" target="_blank" rel="noreferrer">
+            {`Rick and Morty API `}
+          </a>
+          {t('Сhosen as a sample handler for GraphQL queries')}
+        </Card.Text>
         <Card.Text className="text-left">{t('Created')}</Card.Text>
       </Container>
       <Card className="col-md-4 col-sm-6 col-lg-4 text-justify h-100">
