@@ -3,7 +3,6 @@ export const responsePlaceholder = 'Your response will appear here . .';
 export const variablesPlaceholder = `{
   "characterName": "Rick",
   "locationId": 1,
-  "episodeIds": [1, 2]
 }`;
 
 export const headersPlaceholder = `{"Content-Type": "application/json"}`;

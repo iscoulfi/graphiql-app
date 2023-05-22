@@ -10,7 +10,7 @@ export const SubmitButton = ({ loading }: { loading: boolean }) => {
   return (
     <div className={styles.submitButton}>
       <Button variant="primary" disabled={loading} type="submit" size="sm">
-        <span className="d-lg-none fs-6 pe-2">{t('Send')}</span>
+        <span className="d-lg-none fs-6 pe-2 fw-bold">{t('Send')}</span>
         {loading ? <BsStopFill /> : <BsPlayFill />}
       </Button>
     </div>
