@@ -1,6 +1,6 @@
 # GraphiQL 💻
 
-GraphiQL is a web application that provides a simple interface for creating and executing GraphQL queries. Rick and Morty API (rickandmortyapi.com/graphql) was chosen as a sample handler for GraphQL queries.
+GraphiQL is a web application that provides a simple interface for creating and executing GraphQL queries. [Rick and Morty API](https://rickandmortyapi.com/graphql) was chosen as a sample handler for GraphQL queries.
 The application consists of the following components:
 
 - Welcome page
