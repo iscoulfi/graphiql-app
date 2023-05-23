@@ -1,5 +1,4 @@
 {
-  "welcome": "welcome page !",
   "Sign up": "Sign up",
   "Sign in": "Sign in",
   "Header sign up": "Sign up",
@@ -34,5 +33,6 @@
   "This email already exists": "This email already exists",
   "Your response will appear here . .": "Your response will appear here . .",
   "Enter your request": "Enter your request . .",
+  "Сhosen as a sample handler for GraphQL queries": "was chosen as a sample handler for GraphQL queries.",
   "Send": "Send"
 }
