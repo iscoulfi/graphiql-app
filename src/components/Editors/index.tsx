@@ -14,7 +14,7 @@ export const Editors = () => {
   const [variables, setVariables] = useState('');
   const [headers, setHeaders] = useState('');
   const [parseError, setParseError] = useState('');
-  const [tab, setTab] = useState<string | null>('variables');
+  const [tab, setTab] = useState<string | null>(null);
 
   const { t } = useTranslation();
 
