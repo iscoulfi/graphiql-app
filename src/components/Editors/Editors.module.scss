@@ -1,8 +1,18 @@
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
+
 .container {
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: space-between;
+}
+
+@include media-breakpoint-down(lg) {
+  .container {
+    flex-direction: column;
+  }
 }
 
 .editorWrapper {

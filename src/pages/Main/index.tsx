@@ -20,7 +20,7 @@ export const Main = () => {
   if (!user) return null;
 
   return (
-    <div className="d-flex">
+    <div className={styles.main}>
       <Documentation />
       <Editors />
     </div>
