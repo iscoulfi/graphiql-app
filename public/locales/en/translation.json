@@ -34,5 +34,7 @@
   "Your response will appear here . .": "Your response will appear here . .",
   "Enter your request": "Enter your request . .",
   "Сhosen as a sample handler for GraphQL queries": "was chosen as a sample handler for GraphQL queries.",
-  "Send": "Send"
+  "Send": "Send",
+  "Home": "Home",
+  "Page not found": "Page not found"
 }
