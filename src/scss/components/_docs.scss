@@ -4,10 +4,12 @@
 }
 
 .documentation {
+  flex-direction: row-reverse;
   .docs {
     width: 290px;
     padding: 16px;
-    min-height: 100%;
+    height: max(500px, 100vh - 56px);
+    overflow: auto;
   }
 
   .btn {
@@ -20,6 +22,7 @@
     }
   }
   @include media-breakpoint-down(lg) {
+    flex-direction: row;
     .docs {
       width: 100%;
       height: 50vh;
