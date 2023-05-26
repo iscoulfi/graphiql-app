@@ -3,7 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Button, Stack, Card, Container } from 'react-bootstrap';
-import { ROUTES } from 'assets';
+import { Paths } from 'assets';
 import PuffLoader from 'react-spinners/PuffLoader';
 import styles from './Welcome.module.scss';
 
@@ -12,9 +12,9 @@ export const Welcome = () => {
 
   const navigate = useNavigate();
 
-  const handleMainClick = () => navigate(ROUTES.MAIN);
-  const handleSignInClick = () => navigate(ROUTES.AUTH);
-  const handleSignUpClick = () => navigate(ROUTES.SIGNUP);
+  const handleMainClick = () => navigate(Paths.MAIN);
+  const handleSignInClick = () => navigate(Paths.AUTH);
+  const handleSignUpClick = () => navigate(Paths.SIGNUP);
 
   const { t } = useTranslation();
 

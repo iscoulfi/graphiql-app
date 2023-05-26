@@ -2,15 +2,15 @@ import { Routes, Route } from 'react-router-dom';
 
 import MainLayout from './layouts/MainLayout';
 import { Auth, Main, NotFound, Welcome } from 'pages';
-import { ROUTES } from 'assets';
+import { Paths } from 'assets';
 
 const App = () => {
   return (
     <Routes>
-      <Route path={ROUTES.WELCOME} element={<MainLayout />}>
+      <Route path={Paths.WELCOME} element={<MainLayout />}>
         <Route index element={<Welcome />} />
-        <Route path={ROUTES.AUTH} element={<Auth />} />
-        <Route path={ROUTES.MAIN} element={<Main />} />
+        <Route path={Paths.AUTH} element={<Auth />} />
+        <Route path={Paths.MAIN} element={<Main />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

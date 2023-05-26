@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Navbar } from 'react-bootstrap';
 import { HeaderAuthentication, LanguageSelector } from './components';
-import { ROUTES } from 'assets';
+import { Paths } from 'assets';
 
 export const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -25,7 +25,7 @@ export const Header = () => {
   return (
     <Navbar className={`border-bottom header ${isSticky ? 'bg-dark text-white' : ''}`} sticky="top">
       <Container>
-        <Navbar.Brand className="link" onClick={() => navigate(ROUTES.WELCOME)}>
+        <Navbar.Brand className="link" onClick={() => navigate(Paths.WELCOME)}>
           <img
             src="/img/logo.svg"
             width="30"
