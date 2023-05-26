@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { ButtonGroup, Button } from 'react-bootstrap';
+import classNames from 'classnames';
 
 const enum Languages {
   RU = 'ru',
   EN = 'en',
 }
 
-export const LanguageSelector = ({ className }: { className: string }) => {
+export const LanguageSelector = ({ isSticky }: { isSticky: boolean }) => {
   const { i18n } = useTranslation();
 
   const changeLanguage = (language: Languages) => {
@@ -19,7 +20,7 @@ export const LanguageSelector = ({ className }: { className: string }) => {
         active={i18n.language === Languages.EN}
         variant="outline-secondary"
         onClick={() => changeLanguage(Languages.EN)}
-        className={className}
+        className={classNames({ 'text-white': isSticky })}
       >
         EN
       </Button>
@@ -27,7 +28,7 @@ export const LanguageSelector = ({ className }: { className: string }) => {
         active={i18n.language === Languages.RU}
         variant="outline-secondary"
         onClick={() => changeLanguage(Languages.RU)}
-        className={className}
+        className={classNames({ 'text-white': isSticky })}
       >
         RU
       </Button>

@@ -6,8 +6,9 @@ import { TbLogout } from 'react-icons/tb';
 import { Button } from 'react-bootstrap';
 import { Paths } from 'assets';
 import styles from './HeaderAuthentication.module.scss';
+import classNames from 'classnames';
 
-export const HeaderAuthentication = ({ className }: { className: string }) => {
+export const HeaderAuthentication = ({ isSticky }: { isSticky: boolean }) => {
   const [user, loading] = useAuthState(auth);
 
   const navigate = useNavigate();
@@ -23,14 +24,18 @@ export const HeaderAuthentication = ({ className }: { className: string }) => {
     return (
       <div>
         <Button
-          className={`border-0 ${className}`}
+          className={classNames('border-0', { 'text-white': isSticky })}
           size="sm"
           variant=""
           onClick={() => navigate(Paths.AUTH)}
         >
           {t('Header sign in')}
         </Button>
-        <Button size="sm" className={className} onClick={() => navigate(Paths.SIGNUP)}>
+        <Button
+          size="sm"
+          className={classNames({ 'text-white': isSticky })}
+          onClick={() => navigate(Paths.SIGNUP)}
+        >
           {t('Header sign up')}
         </Button>
       </div>
