@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { TbLogout } from 'react-icons/tb';
 import { Button } from 'react-bootstrap';
 import styles from './HeaderAuthentication.module.scss';
+import classNames from 'classnames';
 
 export const HeaderAuthentication = ({ className }: { className: string }) => {
   const [user, loading] = useAuthState(auth);
@@ -22,7 +23,7 @@ export const HeaderAuthentication = ({ className }: { className: string }) => {
     return (
       <div>
         <Button
-          className={`border-0 ${className}`}
+          className={classNames('border-0', className)}
           size="sm"
           variant=""
           onClick={() => navigate('/auth')}
