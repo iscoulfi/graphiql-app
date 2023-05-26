@@ -13,12 +13,10 @@ export const LanguageSelector = ({ className }: { className: string }) => {
     i18n.changeLanguage(language);
   };
 
-  const isActive = (language: Language) => i18n.language === language;
-
   return (
     <ButtonGroup size="sm" className="ms-2">
       <Button
-        active={isActive(Language.EN)}
+        active={i18n.language === Language.EN}
         variant="outline-secondary"
         onClick={() => changeLanguage(Language.EN)}
         className={className}
@@ -26,7 +24,7 @@ export const LanguageSelector = ({ className }: { className: string }) => {
         EN
       </Button>
       <Button
-        active={isActive(Language.RU)}
+        active={i18n.language === Language.RU}
         variant="outline-secondary"
         onClick={() => changeLanguage(Language.RU)}
         className={className}
