@@ -4,7 +4,7 @@
 
 .container {
   width: 100%;
-  min-height: 100vh;
+  min-height: max(500px, 100vh - 56px);
   display: flex;
   justify-content: space-between;
 }

@@ -34,5 +34,7 @@
   "Your response will appear here . .": "Здесь будет ваш ответ . .",
   "Enter your request": "Введите ваш запрос . .",
   "Сhosen as a sample handler for GraphQL queries": "используется в качестве обработчика GraphQL запросов.",
-  "Send": "Отправить"
+  "Send": "Отправить",
+  "Home": "Домой",
+  "Page not found": "Страница не найдена"
 }
