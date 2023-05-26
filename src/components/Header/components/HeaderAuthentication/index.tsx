@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap';
 import styles from './HeaderAuthentication.module.scss';
 import classNames from 'classnames';
 
-export const HeaderAuthentication = ({ className }: { className: string }) => {
+export const HeaderAuthentication = ({ isSticky }: { isSticky: boolean }) => {
   const [user, loading] = useAuthState(auth);
 
   const navigate = useNavigate();
@@ -23,14 +23,18 @@ export const HeaderAuthentication = ({ className }: { className: string }) => {
     return (
       <div>
         <Button
-          className={classNames('border-0', className)}
+          className={classNames('border-0', { 'text-white': isSticky })}
           size="sm"
           variant=""
           onClick={() => navigate('/auth')}
         >
           {t('Header sign in')}
         </Button>
-        <Button size="sm" className={className} onClick={() => navigate('/auth?signup=true')}>
+        <Button
+          size="sm"
+          className={classNames({ 'text-white': isSticky })}
+          onClick={() => navigate('/auth?signup=true')}
+        >
           {t('Header sign up')}
         </Button>
       </div>

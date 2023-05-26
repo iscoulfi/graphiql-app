@@ -38,8 +38,8 @@ export const Header = () => {
           />
         </Navbar.Brand>
         <Container className="d-flex justify-content-end p-0">
-          <HeaderAuthentication className={classNames({ 'text-white': isSticky })} />
-          <LanguageSelector className={classNames({ 'text-white': isSticky })} />
+          <HeaderAuthentication isSticky={isSticky} />
+          <LanguageSelector isSticky={isSticky} />
         </Container>
       </Container>
     </Navbar>
