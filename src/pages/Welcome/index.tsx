@@ -1,4 +1,4 @@
-import { auth } from 'config';
+import { auth } from 'helpers';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';

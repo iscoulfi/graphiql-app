@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
-import { auth } from 'config';
+import { auth } from 'helpers';
 import styles from './Main.module.scss';
 import PuffLoader from 'react-spinners/PuffLoader';
 import { Documentation, Editors } from 'components';

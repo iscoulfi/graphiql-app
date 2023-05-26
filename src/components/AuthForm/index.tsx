@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth, logInWithEmailAndPassword, registerWithEmailAndPassword } from 'config';
+import { auth, logInWithEmailAndPassword, registerWithEmailAndPassword } from 'helpers';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { FormDefinition, Inputs } from 'types';
