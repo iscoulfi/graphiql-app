@@ -3,13 +3,13 @@ import { Header, Footer } from 'components';
 
 const MainLayout = () => {
   return (
-    <>
+    <div className="app">
       <Header />
       <div className="main">
         <Outlet />
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
