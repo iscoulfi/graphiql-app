@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth, logInWithEmailAndPassword, registerWithEmailAndPassword } from 'config';
+import { auth, logInWithEmailAndPassword, registerWithEmailAndPassword } from 'helpers';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { FormDefinition, Inputs } from 'types';
@@ -11,6 +11,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import PuffLoader from 'react-spinners/PuffLoader';
 import { useTranslation } from 'react-i18next';
+import { Paths } from 'assets';
 
 interface AuthFormProps {
   definition: FormDefinition;
@@ -43,7 +44,7 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
 
   useEffect(() => {
     if (loading) return;
-    if (user) navigate('/main');
+    if (user) navigate(Paths.MAIN);
   }, [user, loading, navigate]);
 
   if (loading) return <PuffLoader className={styles.loader} color="#e535ab" />;

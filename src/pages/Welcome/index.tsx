@@ -1,8 +1,9 @@
-import { auth } from 'config';
+import { auth } from 'helpers';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Button, Stack, Card, Container } from 'react-bootstrap';
+import { Paths } from 'assets';
 import PuffLoader from 'react-spinners/PuffLoader';
 import styles from './Welcome.module.scss';
 
@@ -11,9 +12,9 @@ export const Welcome = () => {
 
   const navigate = useNavigate();
 
-  const onMainClick = () => navigate('/main');
-  const onSignInClick = () => navigate('/auth');
-  const onSignUpClick = () => navigate('/auth?signup=true');
+  const handleMainClick = () => navigate(Paths.MAIN);
+  const handleSignInClick = () => navigate(Paths.AUTH);
+  const handleSignUpClick = () => navigate(Paths.SIGNUP);
 
   const { t } = useTranslation();
 
@@ -44,15 +45,15 @@ export const Welcome = () => {
         </Card.Subtitle>
         <Card.Body className="text-center">
           {user ? (
-            <Button onClick={onMainClick} variant="secondary">
+            <Button onClick={handleMainClick} variant="secondary">
               {t('Go to main page')}
             </Button>
           ) : (
             <Stack gap={2} className="mx-auto col-lg-9">
-              <Button onClick={onSignInClick} variant="outline-secondary">
+              <Button onClick={handleSignInClick} variant="outline-secondary">
                 {t('Sign in')}
               </Button>
-              <Button onClick={onSignUpClick} variant="secondary">
+              <Button onClick={handleSignUpClick} variant="secondary">
                 {t('Sign up')}
               </Button>
             </Stack>

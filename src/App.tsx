@@ -2,19 +2,18 @@ import { Routes, Route } from 'react-router-dom';
 
 import MainLayout from './layouts/MainLayout';
 import { Auth, Main, NotFound, Welcome } from 'pages';
+import { Paths } from 'assets';
 
 const App = () => {
   return (
-    <div className="app">
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Welcome />} />
-          <Route path="auth" element={<Auth />} />
-          <Route path="main" element={<Main />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path={Paths.WELCOME} element={<MainLayout />}>
+        <Route index element={<Welcome />} />
+        <Route path={Paths.AUTH} element={<Auth />} />
+        <Route path={Paths.MAIN} element={<Main />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 

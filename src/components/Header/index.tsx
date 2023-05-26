@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Navbar } from 'react-bootstrap';
 import { HeaderAuthentication, LanguageSelector } from './components';
+import { Paths } from 'assets';
 import classNames from 'classnames';
 
 export const Header = () => {
@@ -28,7 +29,7 @@ export const Header = () => {
       sticky="top"
     >
       <Container>
-        <Navbar.Brand className="link" onClick={() => navigate('/')}>
+        <Navbar.Brand className="link" onClick={() => navigate(Paths.WELCOME)}>
           <img
             src="/img/logo.svg"
             width="30"
