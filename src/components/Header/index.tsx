@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Navbar } from 'react-bootstrap';
 import { HeaderAuthentication, LanguageSelector } from './components';
+import classNames from 'classnames';
 
 export const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -22,7 +23,10 @@ export const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <Navbar className={`border-bottom header ${isSticky ? 'bg-dark text-white' : ''}`} sticky="top">
+    <Navbar
+      className={classNames('border-bottom header', { 'bg-dark text-white': isSticky })}
+      sticky="top"
+    >
       <Container>
         <Navbar.Brand className="link" onClick={() => navigate('/')}>
           <img
@@ -34,8 +38,8 @@ export const Header = () => {
           />
         </Navbar.Brand>
         <Container className="d-flex justify-content-end p-0">
-          <HeaderAuthentication className={isSticky ? 'text-white' : ''} />
-          <LanguageSelector className={isSticky ? 'text-white' : ''} />
+          <HeaderAuthentication isSticky={isSticky} />
+          <LanguageSelector isSticky={isSticky} />
         </Container>
       </Container>
     </Navbar>
