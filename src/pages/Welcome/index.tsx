@@ -11,9 +11,9 @@ export const Welcome = () => {
 
   const navigate = useNavigate();
 
-  const onMainClick = () => navigate('/main');
-  const onSignInClick = () => navigate('/auth');
-  const onSignUpClick = () => navigate('/auth?signup=true');
+  const handleMainClick = () => navigate('/main');
+  const handleSignInClick = () => navigate('/auth');
+  const handleSignUpClick = () => navigate('/auth?signup=true');
 
   const { t } = useTranslation();
 
@@ -44,15 +44,15 @@ export const Welcome = () => {
         </Card.Subtitle>
         <Card.Body className="text-center">
           {user ? (
-            <Button onClick={onMainClick} variant="secondary">
+            <Button onClick={handleMainClick} variant="secondary">
               {t('Go to main page')}
             </Button>
           ) : (
             <Stack gap={2} className="mx-auto col-lg-9">
-              <Button onClick={onSignInClick} variant="outline-secondary">
+              <Button onClick={handleSignInClick} variant="outline-secondary">
                 {t('Sign in')}
               </Button>
-              <Button onClick={onSignUpClick} variant="secondary">
+              <Button onClick={handleSignUpClick} variant="secondary">
                 {t('Sign up')}
               </Button>
             </Stack>
