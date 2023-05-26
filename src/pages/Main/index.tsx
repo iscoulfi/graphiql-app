@@ -5,6 +5,7 @@ import { auth } from 'helpers';
 import styles from './Main.module.scss';
 import PuffLoader from 'react-spinners/PuffLoader';
 import { Documentation, Editors } from 'components';
+import { ROUTES } from 'assets';
 
 export const Main = () => {
   const [user, loading] = useAuthState(auth);
@@ -12,7 +13,7 @@ export const Main = () => {
 
   useEffect(() => {
     if (loading) return;
-    if (!user) navigate('/');
+    if (!user) navigate(ROUTES.WELCOME);
   }, [user, loading, navigate]);
 
   if (loading) return <PuffLoader className={styles.loader} color="#e535ab" />;

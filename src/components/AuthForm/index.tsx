@@ -11,6 +11,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import PuffLoader from 'react-spinners/PuffLoader';
 import { useTranslation } from 'react-i18next';
+import { ROUTES } from 'assets';
 
 interface AuthFormProps {
   definition: FormDefinition;
@@ -43,7 +44,7 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
 
   useEffect(() => {
     if (loading) return;
-    if (user) navigate('/main');
+    if (user) navigate(ROUTES.MAIN);
   }, [user, loading, navigate]);
 
   if (loading) return <PuffLoader className={styles.loader} color="#e535ab" />;
