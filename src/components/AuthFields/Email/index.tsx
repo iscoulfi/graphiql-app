@@ -1,4 +1,4 @@
-import { FieldErrors, UseFormRegister } from 'react-hook-form/dist/types';
+import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import { Inputs } from 'types';
 import { useTranslation } from 'react-i18next';
 import Form from 'react-bootstrap/Form';
