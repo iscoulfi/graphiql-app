@@ -24,33 +24,31 @@ export const Login = () => {
   };
 
   return (
-    <section className="text-center">
-      <div className="py-5 px-md-5">
-        <div className="d-flex justify-content-center">
-          <AuthCheck logOutRequired redirectTo={Paths.MAIN}>
-            <div className={styles.auth}>
-              <h2 className={styles.title}>{t('Sign in')}</h2>
-              <Form noValidate onSubmit={handleSubmit(onSubmit)}>
-                <Email register={register} errors={errors} />
+    <AuthCheck logOutRequired redirectTo={Paths.MAIN}>
+      <section className="text-center">
+        <div className="py-5 d-flex justify-content-center">
+          <div className={styles.auth}>
+            <h2 className={styles.title}>{t('Sign in')}</h2>
+            <Form noValidate onSubmit={handleSubmit(onSubmit)}>
+              <Email register={register} errors={errors} />
 
-                <Password register={register} errors={errors} />
+              <Password register={register} errors={errors} />
 
-                <Button variant="primary" type="submit" className="mb-4">
-                  {t('Sign in')}
-                </Button>
+              <Button variant="primary" type="submit" className="mb-4">
+                {t('Sign in')}
+              </Button>
 
-                <p>
-                  {t("Don't have an account? ")}
-                  <Link to={Paths.SIGNUP} className={styles.link}>
-                    {t('Register here')}
-                  </Link>
-                </p>
-              </Form>
-              <ToastContainer autoClose={3000} />
-            </div>
-          </AuthCheck>
+              <p>
+                {t("Don't have an account? ")}
+                <Link to={Paths.SIGNUP} className={styles.link}>
+                  {t('Register here')}
+                </Link>
+              </p>
+            </Form>
+            <ToastContainer autoClose={3000} />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </AuthCheck>
   );
 };
