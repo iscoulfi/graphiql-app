@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { auth, logInWithEmailAndPassword, registerWithEmailAndPassword } from 'helpers';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import React from 'react';
+import { logInWithEmailAndPassword, registerWithEmailAndPassword } from 'helpers';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { FormDefinition, Inputs } from 'types';
 import { ToastContainer } from 'react-toastify';
@@ -9,9 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import styles from './AuthForm.module.scss';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import PuffLoader from 'react-spinners/PuffLoader';
 import { useTranslation } from 'react-i18next';
-import { Paths } from 'assets';
 
 interface AuthFormProps {
   definition: FormDefinition;
@@ -21,8 +17,6 @@ interface AuthFormProps {
 
 export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => {
   const { title, text, linkText } = definition;
-  const navigate = useNavigate();
-  const [user, loading] = useAuthState(auth);
   const { t } = useTranslation();
   const {
     register,
@@ -41,15 +35,6 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
     setIsLogin(!isLogin);
     reset();
   };
-
-  useEffect(() => {
-    if (loading) return;
-    if (user) navigate(Paths.MAIN);
-  }, [user, loading, navigate]);
-
-  if (loading) return <PuffLoader className={styles.loader} color="#e535ab" />;
-
-  if (user) return null;
 
   return (
     <div className={styles.auth}>
