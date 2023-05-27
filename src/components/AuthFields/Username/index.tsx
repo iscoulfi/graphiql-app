@@ -2,7 +2,7 @@ import { FieldErrors, UseFormRegister } from 'react-hook-form/dist/types';
 import { Inputs } from 'types';
 import { useTranslation } from 'react-i18next';
 import Form from 'react-bootstrap/Form';
-import styles from '../AuthForm.module.scss';
+import styles from '../AuthFields.module.scss';
 
 type UsernameInputProps = { register: UseFormRegister<Inputs>; errors: FieldErrors<Inputs> };
 
