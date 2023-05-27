@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
-import { AuthForm } from 'components';
+import { AuthForm, AuthCheck } from 'components';
 import { useState } from 'react';
-import { LoginDefinition, RegisterDefinition } from 'assets';
+import { LoginDefinition, Paths, RegisterDefinition } from 'assets';
 
 export const Auth = () => {
   const [searchParams] = useSearchParams();
@@ -14,11 +14,13 @@ export const Auth = () => {
     <section className="text-center">
       <div className="py-5 px-md-5">
         <div className="d-flex justify-content-center">
-          {isLogin ? (
-            <AuthForm definition={LoginDefinition} isLogin={isLogin} setIsLogin={setIsLogin} />
-          ) : (
-            <AuthForm definition={RegisterDefinition} isLogin={isLogin} setIsLogin={setIsLogin} />
-          )}
+          <AuthCheck logOutRequired redirectTo={Paths.MAIN}>
+            {isLogin ? (
+              <AuthForm definition={LoginDefinition} isLogin={isLogin} setIsLogin={setIsLogin} />
+            ) : (
+              <AuthForm definition={RegisterDefinition} isLogin={isLogin} setIsLogin={setIsLogin} />
+            )}
+          </AuthCheck>
         </div>
       </div>
     </section>
