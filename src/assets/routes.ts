@@ -2,5 +2,5 @@ export const Paths = {
   WELCOME: '/',
   AUTH: '/auth',
   MAIN: '/main',
-  SIGNUP: '/auth?signup=true',
+  SIGNUP: '/register',
 } as const;

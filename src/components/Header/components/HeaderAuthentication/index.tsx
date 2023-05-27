@@ -16,7 +16,7 @@ export const HeaderAuthentication = ({ isSticky }: { isSticky: boolean }) => {
   const { t } = useTranslation();
 
   const { pathname } = useLocation();
-  const isAuthPage = pathname === Paths.AUTH;
+  const isAuthPage = pathname === Paths.AUTH || pathname === Paths.SIGNUP;
 
   if (user) return <TbLogout className={styles.logout} onClick={logout} title="Log out" />;
 
