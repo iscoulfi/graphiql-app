@@ -25,30 +25,28 @@ export const Register = () => {
 
   return (
     <AuthCheck logOutRequired redirectTo={Paths.MAIN}>
-      <section className="text-center">
-        <div className="py-5 d-flex justify-content-center">
-          <div className={styles.auth}>
-            <h2 className={styles.title}>{t('Sign up')}</h2>
-            <Form noValidate onSubmit={handleSubmit(onSubmit)}>
-              <Username register={register} errors={errors} />
+      <section className="text-center py-5 d-flex justify-content-center">
+        <div className={styles.auth}>
+          <h2 className={styles.title}>{t('Sign up')}</h2>
+          <Form noValidate onSubmit={handleSubmit(onSubmit)}>
+            <Username register={register} errors={errors} />
 
-              <Email register={register} errors={errors} />
+            <Email register={register} errors={errors} />
 
-              <Password register={register} errors={errors} />
+            <Password register={register} errors={errors} />
 
-              <Button variant="primary" type="submit" className="mb-4">
-                {t('Sign up')}
-              </Button>
+            <Button variant="primary" type="submit" className="mb-4">
+              {t('Sign up')}
+            </Button>
 
-              <p>
-                {t('Have an account? ')}
-                <Link to={Paths.AUTH} className={styles.link}>
-                  {t('Sign in')}
-                </Link>
-              </p>
-            </Form>
-            <ToastContainer autoClose={3000} />
-          </div>
+            <p>
+              {t('Have an account? ')}
+              <Link to={Paths.AUTH} className={styles.link}>
+                {t('Sign in')}
+              </Link>
+            </p>
+          </Form>
+          <ToastContainer autoClose={3000} />
         </div>
       </section>
     </AuthCheck>
