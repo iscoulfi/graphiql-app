@@ -8,6 +8,7 @@ import styles from './AuthForm.module.scss';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useTranslation } from 'react-i18next';
+import { Username, Email, Password } from './fields';
 
 interface AuthFormProps {
   definition: FormDefinition;
@@ -40,74 +41,11 @@ export const AuthForm = ({ definition, isLogin, setIsLogin }: AuthFormProps) => 
     <div className={styles.auth}>
       <h2 className={styles.title}>{t(title)}</h2>
       <Form noValidate onSubmit={handleSubmit(onSubmit)}>
-        {!isLogin && (
-          <Form.Group className="mb-3">
-            <Form.Control
-              type="text"
-              placeholder={t('Enter username') as string}
-              {...register('username', {
-                required: {
-                  value: true,
-                  message: 'Please enter username',
-                },
-              })}
-              autoComplete="off"
-              isInvalid={!!errors.username}
-            />
-            {errors.username?.message ? (
-              <span className={styles.error}>{t(errors.username.message)}</span>
-            ) : (
-              <span>{t('Username')}</span>
-            )}
-          </Form.Group>
-        )}
+        {!isLogin && <Username register={register} errors={errors} />}
 
-        <Form.Group className="mb-3">
-          <Form.Control
-            type="email"
-            placeholder={t('Enter e-mail') as string}
-            {...register('email', {
-              required: {
-                value: true,
-                message: 'Please enter e-mail',
-              },
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: 'Invalid email address',
-              },
-            })}
-            autoComplete="off"
-            isInvalid={!!errors.email}
-          />
-          {errors.email?.message ? (
-            <span className={styles.error}>{t(errors.email.message)}</span>
-          ) : (
-            <span>{t('E-mail')}</span>
-          )}
-        </Form.Group>
+        <Email register={register} errors={errors} />
 
-        <Form.Group className="mb-3">
-          <Form.Control
-            type="password"
-            placeholder={t('Password') as string}
-            {...register('password', {
-              required: {
-                value: true,
-                message: 'Please enter password',
-              },
-              pattern: {
-                value: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-                message: 'Length error',
-              },
-            })}
-            isInvalid={!!errors.password}
-          />
-          {errors.password?.message ? (
-            <span className={styles.error}>{t(errors.password.message)}</span>
-          ) : (
-            <span>{t('Password')}</span>
-          )}
-        </Form.Group>
+        <Password register={register} errors={errors} />
 
         <Button variant="primary" type="submit" className="mb-4">
           {t(title)}
