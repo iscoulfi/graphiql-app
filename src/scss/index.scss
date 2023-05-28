@@ -1,0 +1,51 @@
+$primary: #e10098;
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import './components/docs';
+@import './components/header';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+#root {
+  height: 100%;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
+  margin: auto;
+  max-width: 1400px;
+  width: 100%;
+}

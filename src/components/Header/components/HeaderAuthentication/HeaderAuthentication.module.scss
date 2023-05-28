@@ -1,0 +1,11 @@
+.logout {
+  color: #e10098;
+  width: 30px;
+  height: 30px;
+  margin-right: 1rem;
+  cursor: pointer;
+  &:hover {
+    color: #bf0081;
+  }
+  transition: color 0.15s ease-in-out;
+}

@@ -1,0 +1,23 @@
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
+
+.operationEditor {
+  height: 100%;
+}
+.operationCode {
+  height: 100%;
+  font-size: 16px;
+  border: 1px solid;
+  background-color: #ffffff;
+  font-family: 'Fira Code', monospace;
+  border-radius: 10px;
+  padding: 15px;
+  overflow: auto !important;
+}
+
+@include media-breakpoint-down(lg) {
+  .operationCode {
+    height: 60vh;
+  }
+}

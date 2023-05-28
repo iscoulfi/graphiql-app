@@ -1,0 +1,37 @@
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
+
+.container {
+  width: 100%;
+  min-height: max(500px, 100vh - 56px);
+  display: flex;
+  justify-content: space-between;
+}
+
+@include media-breakpoint-down(lg) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+.editorWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  & > div {
+    padding: 16px;
+  }
+}
+
+.responseWrapper {
+  display: flex;
+  flex: 1 1 0%;
+  position: relative;
+  align-items: center;
+  padding: 16px;
+}
+.tabs {
+  margin-left: 16px;
+  font-weight: 600;
+}
