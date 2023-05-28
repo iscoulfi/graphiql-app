@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { Paths } from 'assets';
 import { useTranslation } from 'react-i18next';
-import { Username, Email, Password, AuthCheck } from 'components';
+import { Username, Email, Password, AuthGuard } from 'components';
 import styles from './Register.module.scss';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -24,7 +24,7 @@ export const Register = () => {
   };
 
   return (
-    <AuthCheck logOutRequired redirectTo={Paths.MAIN}>
+    <AuthGuard logOutRequired redirectTo={Paths.MAIN}>
       <section className="text-center py-5 d-flex justify-content-center">
         <div className={styles.auth}>
           <h2 className={styles.title}>{t('Sign up')}</h2>
@@ -49,6 +49,6 @@ export const Register = () => {
           <ToastContainer autoClose={3000} />
         </div>
       </section>
-    </AuthCheck>
+    </AuthGuard>
   );
 };

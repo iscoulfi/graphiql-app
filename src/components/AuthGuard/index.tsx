@@ -2,22 +2,22 @@ import { useEffect, ReactNode } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth } from 'helpers';
-import styles from './AuthCheck.module.scss';
+import styles from './AuthGuard.module.scss';
 import PuffLoader from 'react-spinners/PuffLoader';
 
-interface AuthCheckProps {
+interface AuthGuardProps {
   children: ReactNode;
   redirectTo: string;
   authRequired?: boolean;
   logOutRequired?: boolean;
 }
 
-export const AuthCheck = ({
+export const AuthGuard = ({
   children,
   redirectTo,
   authRequired,
   logOutRequired,
-}: AuthCheckProps) => {
+}: AuthGuardProps) => {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
